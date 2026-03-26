@@ -1,11 +1,8 @@
 import { supabase } from './supabaseClient.js';
 
 export function initializeLandingPageEnhancements() {
-  makeComparisonTableCollapsible();
-  setupCTAForms();
-  setupSurveySubmission();
-  removeDollarAmountsFromAIArmy();
-  setupGoldFramedProblemSection();
+  // Disable all enhancements for now to prevent breaking the page
+  console.log('Landing page enhancements disabled');
 }
 
 function makeComparisonTableCollapsible() {
