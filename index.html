@@ -539,6 +539,111 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .icon-think-mouth{width:30%;height:15%;border:3px solid #333;border-top:none;border-radius:0 0 50% 50%;position:absolute;bottom:25%;left:50%;transform:translateX(-50%) rotateZ(10deg);}
 .icon-think-hand{width:20%;height:20%;background:linear-gradient(135deg,#FFD700,#FFA500);border-radius:50%;position:absolute;bottom:15%;right:10%;transform:translateZ(30px);box-shadow:0 5px 15px rgba(255,215,0,0.4);}
 
+/* Shield Icon */
+.icon-shield{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-shield-body{width:65%;height:80%;background:linear-gradient(135deg,#C99A2A,#A67C1F);clip-path:polygon(50% 0%,100% 15%,100% 60%,50% 100%,0% 60%,0% 15%);box-shadow:0 15px 40px rgba(201,154,42,0.5),inset 0 -8px 20px rgba(0,0,0,0.3),inset 0 8px 20px rgba(255,255,255,0.2);transform:translateZ(30px);position:relative;animation:shieldPulse 4s ease-in-out infinite;}
+@keyframes shieldPulse{0%,100%{transform:translateZ(30px) scale(1);}50%{transform:translateZ(35px) scale(1.03);}}
+.icon-shield-emblem{position:absolute;width:40%;height:50%;border:3px solid rgba(139,69,19,0.5);clip-path:polygon(50% 10%,90% 25%,90% 65%,50% 90%,10% 65%,10% 25%);top:50%;left:50%;transform:translate(-50%,-50%);}
+
+/* Refresh/Revolving Icon */
+.icon-refresh{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;animation:refreshSpin 4s linear infinite;}
+@keyframes refreshSpin{100%{transform:rotate(360deg);}}
+.icon-refresh-arc{width:70%;height:70%;border:5px solid #C99A2A;border-radius:50%;position:absolute;clip-path:polygon(0 0,100% 0,100% 50%,50% 50%,50% 100%,0 100%);box-shadow:0 10px 30px rgba(201,154,42,0.5),inset 0 -3px 10px rgba(0,0,0,0.2);transform:translateZ(25px);}
+.icon-refresh-arrow{width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:18px solid #C99A2A;position:absolute;top:8%;right:8%;transform:rotate(45deg) translateZ(30px);box-shadow:0 5px 15px rgba(201,154,42,0.4);}
+.icon-refresh-arrow:nth-child(2){top:auto;bottom:8%;right:auto;left:8%;transform:rotate(225deg) translateZ(30px);}
+
+/* Mailbox Icon */
+.icon-mailbox{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-mailbox-body{width:60%;height:55%;background:linear-gradient(135deg,#C99A2A,#A67C1F);border-radius:8px 8px 0 0;position:absolute;top:25%;box-shadow:0 12px 30px rgba(201,154,42,0.5),inset 0 -5px 15px rgba(0,0,0,0.3),inset 0 5px 15px rgba(255,255,255,0.2);transform:translateZ(28px);}
+.icon-mailbox-flag{width:15%;height:8%;background:linear-gradient(135deg,#E74C3C,#C0392B);position:absolute;right:20%;top:28%;transform-origin:left center;transform:translateZ(32px) rotate(-35deg);border-radius:2px;box-shadow:0 5px 15px rgba(231,76,60,0.5);animation:flagWave 3s ease-in-out infinite;}
+@keyframes flagWave{0%,100%{transform:translateZ(32px) rotate(-35deg);}50%{transform:translateZ(32px) rotate(-15deg);}}
+.icon-mailbox-post{width:8%;height:35%;background:linear-gradient(180deg,#8B4513,#654321);position:absolute;bottom:15%;border-radius:4px;box-shadow:0 8px 20px rgba(139,69,19,0.4);transform:translateZ(20px);}
+.icon-mailbox-slot{width:40%;height:6px;background:#1a1a1a;position:absolute;top:45%;left:50%;transform:translate(-50%,0) translateZ(30px);border-radius:2px;box-shadow:inset 0 2px 5px rgba(0,0,0,0.8);}
+
+/* Crossed Swords Icon */
+.icon-swords{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-sword{width:8%;height:75%;background:linear-gradient(180deg,#A67C1F,#8B6914,#C99A2A);position:absolute;border-radius:2px;box-shadow:0 10px 25px rgba(201,154,42,0.5),inset 0 2px 5px rgba(255,255,255,0.3);transform:translateZ(28px);}
+.icon-sword:nth-child(1){transform:translateZ(28px) rotate(-45deg);}
+.icon-sword:nth-child(2){transform:translateZ(28px) rotate(45deg);}
+.icon-sword::before{content:'';width:100%;height:70%;background:linear-gradient(180deg,#E8E8E8,#999,#CCC);position:absolute;top:0;border-radius:2px 2px 0 0;box-shadow:inset 0 2px 8px rgba(255,255,255,0.5),0 5px 15px rgba(0,0,0,0.3);}
+.icon-sword::after{content:'';width:150%;height:8%;background:linear-gradient(90deg,#C99A2A,#A67C1F,#C99A2A);position:absolute;top:68%;left:50%;transform:translateX(-50%);border-radius:2px;}
+.icon-swords::before{content:'';width:25%;height:25%;background:radial-gradient(circle,rgba(201,154,42,0.3),transparent);border-radius:50%;position:absolute;box-shadow:0 0 30px rgba(201,154,42,0.6);animation:swordGlow 2s ease-in-out infinite;}
+@keyframes swordGlow{0%,100%{opacity:0.6;}50%{opacity:1;}}
+
+/* Fire Icon */
+.icon-fire{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-fire-flame{width:50%;height:70%;background:linear-gradient(180deg,#FFD700,#FFA500,#FF6347);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;position:absolute;bottom:20%;box-shadow:0 0 40px rgba(255,165,0,0.8),inset 0 -10px 20px rgba(255,100,0,0.4);transform:translateZ(30px);animation:fireFlicker 0.3s ease-in-out infinite;}
+@keyframes fireFlicker{0%,100%{transform:translateZ(30px) scale(1) scaleY(1);}50%{transform:translateZ(32px) scale(1.05) scaleY(1.1);}}
+.icon-fire-inner{width:35%;height:50%;background:linear-gradient(180deg,#FFD700,#FFA500);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;position:absolute;bottom:25%;animation:fireFlicker 0.3s 0.15s ease-in-out infinite;}
+.icon-fire::before{content:'';position:absolute;width:80%;height:80%;background:radial-gradient(circle,rgba(255,165,0,0.4),transparent 70%);border-radius:50%;animation:fireGlow 1s ease-in-out infinite;}
+@keyframes fireGlow{0%,100%{transform:scale(1);opacity:0.6;}50%{transform:scale(1.15);opacity:1;}}
+
+/* Gift Box Icon */
+.icon-gift{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-gift-box{width:65%;height:55%;background:linear-gradient(135deg,#C99A2A,#A67C1F);border-radius:4px;position:absolute;bottom:18%;box-shadow:0 12px 30px rgba(201,154,42,0.5),inset 0 -5px 15px rgba(0,0,0,0.3),inset 0 5px 15px rgba(255,255,255,0.2);transform:translateZ(28px);}
+.icon-gift-box::before{content:'';width:20%;height:100%;background:linear-gradient(90deg,#E74C3C,#C0392B,#E74C3C);position:absolute;left:50%;transform:translateX(-50%);box-shadow:inset 0 2px 5px rgba(255,255,255,0.2);}
+.icon-gift-box::after{content:'';width:100%;height:20%;background:linear-gradient(180deg,#E74C3C,#C0392B,#E74C3C);position:absolute;top:30%;box-shadow:inset 0 2px 5px rgba(255,255,255,0.2);}
+.icon-gift-bow{width:50%;height:25%;background:linear-gradient(135deg,#E74C3C,#C0392B);border-radius:50% 50% 0 0;position:absolute;top:10%;clip-path:polygon(0 50%,25% 0,50% 30%,75% 0,100% 50%,85% 100%,50% 85%,15% 100%);box-shadow:0 8px 20px rgba(231,76,60,0.5);transform:translateZ(35px);animation:bowBounce 2s ease-in-out infinite;}
+@keyframes bowBounce{0%,100%{transform:translateZ(35px) scale(1);}50%{transform:translateZ(38px) scale(1.05);}}
+
+/* Lightbulb Icon */
+.icon-bulb{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-bulb-glass{width:55%;height:60%;background:linear-gradient(135deg,rgba(255,215,0,0.3),rgba(255,165,0,0.4));border-radius:50% 50% 45% 45%;position:absolute;top:15%;box-shadow:0 10px 30px rgba(255,215,0,0.5),inset 0 5px 20px rgba(255,255,255,0.4);transform:translateZ(30px);animation:bulbGlow 2s ease-in-out infinite;}
+@keyframes bulbGlow{0%,100%{box-shadow:0 10px 30px rgba(255,215,0,0.5),inset 0 5px 20px rgba(255,255,255,0.4);filter:brightness(1);}50%{box-shadow:0 15px 40px rgba(255,215,0,0.8),inset 0 5px 25px rgba(255,255,255,0.6);filter:brightness(1.2);}}
+.icon-bulb-filament{width:15%;height:25%;border:3px solid #FFD700;border-radius:50%;position:absolute;top:30%;box-shadow:0 0 15px rgba(255,215,0,0.8);}
+.icon-bulb-base{width:35%;height:18%;background:linear-gradient(180deg,#C99A2A,#A67C1F);position:absolute;bottom:20%;border-radius:0 0 4px 4px;box-shadow:0 8px 20px rgba(201,154,42,0.4);transform:translateZ(25px);}
+.icon-bulb-threads{width:100%;height:25%;position:absolute;bottom:0;background:repeating-linear-gradient(180deg,#A67C1F 0px,#A67C1F 2px,transparent 2px,transparent 4px);}
+
+/* Hospital/Medical Icon */
+.icon-hospital{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-hospital-cross{width:45%;height:70%;background:linear-gradient(135deg,#E74C3C,#C0392B);position:relative;transform:translateZ(25px);box-shadow:0 8px 20px rgba(231,76,60,0.5),inset 0 2px 8px rgba(255,255,255,0.2);}
+.icon-hospital-cross::before{content:'';width:70%;height:30%;background:linear-gradient(135deg,#E74C3C,#C0392B);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:inset 0 2px 8px rgba(255,255,255,0.2);}
+
+/* House/Real Estate Icon */
+.icon-house{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-house-roof{width:70%;height:45%;background:linear-gradient(135deg,#C0392B,#8B1A1A);clip-path:polygon(50% 0%,100% 70%,0% 70%);position:absolute;top:15%;box-shadow:0 10px 25px rgba(192,57,43,0.5);transform:translateZ(30px);}
+.icon-house-body{width:55%;height:40%;background:linear-gradient(135deg,#C99A2A,#A67C1F);position:absolute;bottom:18%;border-radius:4px;box-shadow:0 8px 20px rgba(201,154,42,0.5),inset 0 -5px 15px rgba(0,0,0,0.3);transform:translateZ(25px);}
+.icon-house-door{width:30%;height:40%;background:linear-gradient(180deg,#8B4513,#654321);position:absolute;bottom:18%;border-radius:4px 4px 0 0;box-shadow:inset 0 2px 5px rgba(0,0,0,0.5);}
+
+/* Wrench/Tools Icon */
+.icon-wrench{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-wrench-handle{width:12%;height:60%;background:linear-gradient(180deg,#C99A2A,#A67C1F);position:absolute;transform:rotate(-45deg) translateZ(25px);border-radius:4px;box-shadow:0 8px 20px rgba(201,154,42,0.5),inset 0 2px 5px rgba(255,255,255,0.2);}
+.icon-wrench-head{width:28%;height:28%;border:5px solid #C99A2A;border-radius:6px;position:absolute;top:18%;right:18%;transform:translateZ(28px) rotate(-45deg);box-shadow:0 8px 20px rgba(201,154,42,0.5);background:linear-gradient(135deg,rgba(201,154,42,0.2),rgba(201,154,42,0.1));}
+
+/* Scales/Legal Icon */
+.icon-scales{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-scales-base{width:50%;height:8%;background:linear-gradient(135deg,#C99A2A,#A67C1F);position:absolute;bottom:20%;border-radius:4px;box-shadow:0 5px 15px rgba(201,154,42,0.4);transform:translateZ(20px);}
+.icon-scales-pole{width:6%;height:50%;background:linear-gradient(180deg,#C99A2A,#A67C1F);position:absolute;bottom:26%;border-radius:3px;box-shadow:0 8px 20px rgba(201,154,42,0.5);transform:translateZ(25px);}
+.icon-scales-beam{width:70%;height:4%;background:linear-gradient(90deg,#C99A2A,#A67C1F,#C99A2A);position:absolute;top:25%;border-radius:2px;box-shadow:0 5px 15px rgba(201,154,42,0.4);transform:translateZ(28px);}
+.icon-scales-pan{width:22%;height:15%;background:linear-gradient(135deg,#C99A2A,#A67C1F);border-radius:0 0 50% 50%;position:absolute;top:28%;box-shadow:0 5px 15px rgba(201,154,42,0.5);}
+.icon-scales-pan:nth-child(1){left:4%;}
+.icon-scales-pan:nth-child(2){right:4%;}
+
+/* Cart/Shopping Icon */
+.icon-cart{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-cart-body{width:55%;height:45%;background:linear-gradient(135deg,#C99A2A,#A67C1F);border-radius:0 8px 8px 0;position:absolute;top:25%;left:22%;box-shadow:0 8px 20px rgba(201,154,42,0.5),inset 0 -3px 10px rgba(0,0,0,0.3);transform:translateZ(25px);}
+.icon-cart-handle{width:4%;height:55%;background:linear-gradient(180deg,#C99A2A,#A67C1F);position:absolute;top:20%;left:18%;border-radius:3px;transform:translateZ(28px);}
+.icon-cart-wheel{width:12%;height:12%;border-radius:50%;background:linear-gradient(135deg,#8B4513,#654321);position:absolute;bottom:18%;box-shadow:0 5px 15px rgba(139,69,19,0.5),inset 0 -3px 8px rgba(0,0,0,0.5);}
+.icon-cart-wheel:nth-child(1){left:30%;}
+.icon-cart-wheel:nth-child(2){right:22%;}
+
+/* Utensils/Restaurant Icon */
+.icon-utensils{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.icon-fork{width:8%;height:70%;background:linear-gradient(180deg,#C99A2A,#A67C1F);position:absolute;left:35%;border-radius:2px;transform:translateZ(28px);box-shadow:0 8px 20px rgba(201,154,42,0.5),inset 0 2px 5px rgba(255,255,255,0.2);}
+.icon-fork::before,.icon-fork::after{content:'';width:100%;height:30%;background:linear-gradient(180deg,#C99A2A,#A67C1F);position:absolute;top:0;border-radius:2px;}
+.icon-fork::before{left:-130%;}
+.icon-fork::after{left:130%;}
+.icon-knife{width:8%;height:70%;background:linear-gradient(180deg,#E8E8E8,#999);position:absolute;right:35%;border-radius:2px 2px 0 0;transform:translateZ(28px);box-shadow:0 8px 20px rgba(0,0,0,0.3),inset 0 2px 5px rgba(255,255,255,0.5);}
+.icon-knife::after{content:'';width:100%;height:25%;background:linear-gradient(180deg,#C99A2A,#A67C1F);position:absolute;bottom:0;border-radius:2px;}
+
+/* Globe/World Icon */
+.icon-globe{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;animation:globeFloat 6s ease-in-out infinite;}
+@keyframes globeFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(5deg);}}
+.icon-globe-sphere{width:75%;height:75%;border-radius:50%;background:linear-gradient(135deg,#4A90E2,#2E5C8A);box-shadow:0 15px 40px rgba(74,144,226,0.5),inset 0 -10px 25px rgba(0,0,0,0.4),inset 0 10px 25px rgba(255,255,255,0.2);transform:translateZ(30px);position:relative;}
+.icon-globe-continent{width:35%;height:45%;background:linear-gradient(135deg,#27AE60,#229954);border-radius:60% 40% 50% 50%;position:absolute;top:25%;left:15%;opacity:0.8;box-shadow:inset 0 2px 8px rgba(0,0,0,0.3);}
+.icon-globe-line{width:100%;height:2px;background:rgba(255,255,255,0.15);position:absolute;top:50%;left:0;}
+.icon-globe-line:nth-child(2){width:2px;height:100%;top:0;left:50%;}
+
 /* Small icon adjustments */
 .pain-card-icon .icon-chart-bar{box-shadow:0 5px 15px rgba(192,57,43,0.4),inset 0 1px 0 rgba(255,255,255,0.2);}
 .pain-card-icon .icon-gear-circle{box-shadow:0 8px 20px rgba(192,57,43,0.5),inset 0 -3px 8px rgba(0,0,0,0.3);}
@@ -547,6 +652,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .caio-role-icon .icon-gear{animation:gearRotate 6s linear infinite;}
 .survey-opt .icon-3d{width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;animation:none!important;}
 .survey-opt .icon-gear{animation:gearRotate 8s linear infinite;}
+.promise-icon .icon-3d{width:60px;height:60px;}
+.popup-success-icon .icon-3d{width:80px;height:80px;}
+.popup-eyebrow .icon-3d{width:16px;height:16px;display:inline-block;vertical-align:middle;margin-right:6px;}
+.discord-icon .icon-3d{width:70px;height:70px;}
+.svc-icon-wrap .icon-3d{width:36px;height:36px;}
+.industry-tab .icon-3d{width:18px;height:18px;display:inline-block;vertical-align:middle;margin-right:6px;}
 
 /* ═══ PAIN POINTS SECTION ═══ */
 .pain-s{background:var(--void);position:relative;overflow:hidden;}
@@ -1479,7 +1590,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
   <div class="popup-box">
     <button class="popup-close" id="popup-close">✕</button>
     <div class="popup-inner" id="popup-form-wrap">
-      <div class="popup-eyebrow">🎁 Free Strategy Resource</div>
+      <div class="popup-eyebrow"><div class="icon-3d"><div class="icon-gift"><div class="icon-gift-box"></div><div class="icon-gift-bow"></div></div></div> Free Strategy Resource</div>
       <h2 class="popup-title">Get Your Free<br><span class="gtext">AI Army Blueprint</span></h2>
       <p class="popup-sub">Enter your info and we'll send you the exact <strong>5-step AI deployment checklist</strong> we use for every client — plus a free 20-min strategy call invite.</p>
       <div class="popup-form">
@@ -1495,7 +1606,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
     </div>
     <div class="popup-success" id="popup-success">
-      <div class="popup-success-icon">⚔️</div>
+      <div class="popup-success-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></div>
       <h3>Your Army Awaits.</h3>
       <p style="color:var(--muted);font-size:15px;line-height:1.7;">Check your email for your AI Army Blueprint. We'll be in touch to schedule your free strategy call.</p>
     </div>
@@ -1636,11 +1747,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <div class="survey-q">How urgently do you want to get your AI system deployed?</div>
         <div class="survey-hint">This helps us prioritize your strategy call booking.</div>
         <div class="survey-options">
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','ASAP')">🔥 <strong>ASAP</strong> — I needed this yesterday, ready to move immediately</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','ASAP')"><div class="icon-3d"><div class="icon-fire"><div class="icon-fire-flame"></div><div class="icon-fire-inner"></div></div></div> <strong>ASAP</strong> — I needed this yesterday, ready to move immediately</div>
           <div class="survey-opt" onclick="selectOpt(this,'timeline','Within 30 Days')">📅 <strong>Within 30 Days</strong> — Making a decision this month</div>
           <div class="survey-opt" onclick="selectOpt(this,'timeline','1–3 Months')">⏳ <strong>1–3 Months</strong> — Still researching and planning</div>
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','3–6 Months')">📊 <strong>3–6 Months</strong> — Building toward it, no rush</div>
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','Just Curious')">💡 <strong>Just Exploring</strong> — Not ready yet but want to understand</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','3–6 Months')"><div class="icon-3d"><div class="icon-dashboard"><div class="icon-dash-row"><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div></div></div></div> <strong>3–6 Months</strong> — Building toward it, no rush</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','Just Curious')"><div class="icon-3d"><div class="icon-bulb"><div class="icon-bulb-glass"><div class="icon-bulb-filament"></div></div><div class="icon-bulb-base"><div class="icon-bulb-threads"></div></div></div></div> <strong>Just Exploring</strong> — Not ready yet but want to understand</div>
         </div>
         <div class="survey-nav">
           <button class="survey-btn-back" onclick="nextStep(6)">← Back</button>
@@ -1787,13 +1898,13 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <div class="industry-tabs-label">Built for your industry →</div>
     <div class="industry-tabs">
       <button class="industry-tab active" onclick="setIndustry(this,'all')">All Industries</button>
-      <button class="industry-tab" onclick="setIndustry(this,'healthcare')">🏥 Healthcare</button>
-      <button class="industry-tab" onclick="setIndustry(this,'realestate')">🏡 Real Estate</button>
-      <button class="industry-tab" onclick="setIndustry(this,'security')">🛡️ Security</button>
-      <button class="industry-tab" onclick="setIndustry(this,'restaurant')">🍽️ Restaurant</button>
-      <button class="industry-tab" onclick="setIndustry(this,'trades')">🔧 Trades</button>
-      <button class="industry-tab" onclick="setIndustry(this,'legal')">⚖️ Professional Svcs</button>
-      <button class="industry-tab" onclick="setIndustry(this,'ecommerce')">🛒 E-Commerce</button>
+      <button class="industry-tab" onclick="setIndustry(this,'healthcare')"><div class="icon-3d"><div class="icon-hospital"><div class="icon-hospital-cross"></div></div></div> Healthcare</button>
+      <button class="industry-tab" onclick="setIndustry(this,'realestate')"><div class="icon-3d"><div class="icon-house"><div class="icon-house-roof"></div><div class="icon-house-body"></div><div class="icon-house-door"></div></div></div> Real Estate</button>
+      <button class="industry-tab" onclick="setIndustry(this,'security')"><div class="icon-3d"><div class="icon-shield"><div class="icon-shield-body"><div class="icon-shield-emblem"></div></div></div></div> Security</button>
+      <button class="industry-tab" onclick="setIndustry(this,'restaurant')"><div class="icon-3d"><div class="icon-utensils"><div class="icon-fork"></div><div class="icon-knife"></div></div></div> Restaurant</button>
+      <button class="industry-tab" onclick="setIndustry(this,'trades')"><div class="icon-3d"><div class="icon-wrench"><div class="icon-wrench-handle"></div><div class="icon-wrench-head"></div></div></div> Trades</button>
+      <button class="industry-tab" onclick="setIndustry(this,'legal')"><div class="icon-3d"><div class="icon-scales"><div class="icon-scales-base"></div><div class="icon-scales-pole"></div><div class="icon-scales-beam"></div><div class="icon-scales-pan"></div><div class="icon-scales-pan"></div></div></div> Professional Svcs</button>
+      <button class="industry-tab" onclick="setIndustry(this,'ecommerce')"><div class="icon-3d"><div class="icon-cart"><div class="icon-cart-body"></div><div class="icon-cart-handle"></div><div class="icon-cart-wheel"></div><div class="icon-cart-wheel"></div></div></div> E-Commerce</button>
     </div>
   </div>
 </div>
@@ -2693,13 +2804,13 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <p class="s-body reveal">Six core pillars, built to interlock. Each one engineered specifically around your industry, your workflow, and your business model — not a template, not a demo.</p>
     <div class="services-layout reveal">
       <div class="svc"><div class="svc-count">01 / 06</div><div class="svc-icon-wrap">📋</div><h3>SOP Setup</h3><p>Your entire business systematized and documented — so nothing lives inside your head and every process runs without you. Onboarding, fulfillment, customer flows, team handoffs. All of it, organized and searchable.</p><div class="svc-pills"><span class="pill">Process Docs</span><span class="pill">Playbooks</span><span class="pill">Workflows</span><span class="pill">Templates</span></div></div>
-      <div class="svc"><div class="svc-count">02 / 06</div><div class="svc-icon-wrap">⚙️</div><h3>CRM Configuration</h3><p>A fully configured CRM tailored to your sales cycle, lead volume, and customer journey — with pipelines, automated follow-ups, and booking flows built from day one so zero leads fall through the cracks.</p><div class="svc-pills"><span class="pill">Sales Pipelines</span><span class="pill">Lead Capture</span><span class="pill">Auto Follow-Up</span><span class="pill">Funnels</span></div></div>
-      <div class="svc"><div class="svc-count">03 / 06</div><div class="svc-icon-wrap">📊</div><h3>Spreadsheet Systems</h3><p>Custom-built data infrastructure that tracks what matters — revenue, leads, KPIs, operations. Built to feed decision-making with clean data and automated reporting, not manual entry.</p><div class="svc-pills"><span class="pill">KPI Dashboards</span><span class="pill">Revenue Tracking</span><span class="pill">Pipeline Data</span><span class="pill">Auto Reports</span></div></div>
+      <div class="svc"><div class="svc-count">02 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-gear"><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-circle"></div></div></div></div><h3>CRM Configuration</h3><p>A fully configured CRM tailored to your sales cycle, lead volume, and customer journey — with pipelines, automated follow-ups, and booking flows built from day one so zero leads fall through the cracks.</p><div class="svc-pills"><span class="pill">Sales Pipelines</span><span class="pill">Lead Capture</span><span class="pill">Auto Follow-Up</span><span class="pill">Funnels</span></div></div>
+      <div class="svc"><div class="svc-count">03 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-dashboard"><div class="icon-dash-row"><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div></div></div></div></div><h3>Spreadsheet Systems</h3><p>Custom-built data infrastructure that tracks what matters — revenue, leads, KPIs, operations. Built to feed decision-making with clean data and automated reporting, not manual entry.</p><div class="svc-pills"><span class="pill">KPI Dashboards</span><span class="pill">Revenue Tracking</span><span class="pill">Pipeline Data</span><span class="pill">Auto Reports</span></div></div>
       <div class="svc"><div class="svc-count">04 / 06</div><div class="svc-icon-wrap">🤖</div><h3>Industry-Trained AI Agents</h3><p>AI agents that know your business, your customers, and your industry — calibrated to your brand voice, your niche, and your specific products or services. Not generic. Not borrowed. Yours. Scalable up to 50 agents.</p><div class="svc-pills"><span class="pill">Custom Training</span><span class="pill">Brand Voice</span><span class="pill">Niche Knowledge</span><span class="pill">Up to 50 Agents</span></div></div>
-      <div class="svc wide"><div class="svc-count">05 / 06</div><div class="svc-icon-wrap">🔄</div><h3>Full Business Automation</h3><p>Hands-off operations end to end. AI answers your phones, replies to texts, manages your calendar, requests Google Reviews, handles reschedules, manages customer support, and posts on every social platform — all without you touching it. Your AI Army posts from your recorded content, manages inboxes across email, social, and phone, and grows your brand on autopilot.</p><div class="svc-pills"><span class="pill">AI Phone Answering</span><span class="pill">SMS Automation</span><span class="pill">Google Reviews</span><span class="pill">Calendar & Bookings</span><span class="pill">Customer Support</span><span class="pill">Social Posting</span><span class="pill">Inbox Management</span><span class="pill">Email Automation</span></div></div>
+      <div class="svc wide"><div class="svc-count">05 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-refresh"><div class="icon-refresh-arc"></div><div class="icon-refresh-arrow"></div><div class="icon-refresh-arrow"></div></div></div></div><h3>Full Business Automation</h3><p>Hands-off operations end to end. AI answers your phones, replies to texts, manages your calendar, requests Google Reviews, handles reschedules, manages customer support, and posts on every social platform — all without you touching it. Your AI Army posts from your recorded content, manages inboxes across email, social, and phone, and grows your brand on autopilot.</p><div class="svc-pills"><span class="pill">AI Phone Answering</span><span class="pill">SMS Automation</span><span class="pill">Google Reviews</span><span class="pill">Calendar & Bookings</span><span class="pill">Customer Support</span><span class="pill">Social Posting</span><span class="pill">Inbox Management</span><span class="pill">Email Automation</span></div></div>
     </div>
     <div class="books-callout reveal" style="margin-top:2px;border-top:none;">
-      <div class="svc-icon-wrap" style="font-size:32px;margin:0;">🌐</div>
+      <div class="svc-icon-wrap" style="font-size:32px;margin:0;"><div class="icon-3d"><div class="icon-globe"><div class="icon-globe-sphere"><div class="icon-globe-continent"></div><div class="icon-globe-line"></div><div class="icon-globe-line"></div></div></div></div></div>
       <div><p style="font-family:'Syne',sans-serif;font-weight:700;font-size:22px;margin-bottom:10px;"><span class="gtext">06 / 06 — Website + Social Presence</span></p><p style="font-size:15px;color:var(--muted);line-height:1.75;">A full AI-powered website built in a matter of days — designed to convert, built to rank. Add social media profile buildout and your AI Army handles content posting, inbox management, and brand growth across every platform automatically.</p></div>
     </div>
   </div>
@@ -2755,7 +2866,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <thead>
           <tr>
             <th></th>
-            <th class="col-rara-header">⚔️ Rara Avis AI Army</th>
+            <th class="col-rara-header"><div class="icon-3d" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div> Rara Avis AI Army</th>
             <th class="col-agency">Big Agency</th>
             <th class="col-diy">DIY / Software Tools</th>
             <th class="col-freelance">Freelancer</th>
@@ -2925,10 +3036,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <h2 class="s-title reveal">The <span class="gtext">Rara Avis Promise.</span></h2>
     <p class="s-body reveal">We don't just deliver and disappear. Every deployment comes backed by guarantees that actually mean something.</p>
     <div class="promise-grid reveal">
-      <div class="promise-card"><div class="promise-num">30</div><span class="promise-icon">🛡️</span><h3><span>30-Day "We Fix It"</span> Warranty</h3><p>If anything we built isn't performing as promised within 30 days of delivery, we fix it — no questions, no fees, no runaround. If it's broken, that's our problem to solve.</p><div class="promise-badge">Guaranteed Fix · 30 Days</div></div>
-      <div class="promise-card"><div class="promise-num">1Y</div><span class="promise-icon">🔄</span><h3><span>Automatic Updates</span> Warranty</h3><p>AI moves fast. Your system won't fall behind. 6-month or 1-year automatic updates keep your agents, automations, and integrations current — without you touching anything.</p><div class="promise-badge">6-Month or 1-Year Coverage</div></div>
-      <div class="promise-card"><div class="promise-num">WK</div><span class="promise-icon">📬</span><h3>Weekly & Monthly <span>Insider Newsletters</span></h3><p>Exclusive Rara Avis newsletters — weekly tactical updates and monthly deep-dives on AI trends, growth strategies, and automation wins. Content you won't find anywhere else.</p><div class="promise-badge">Weekly + Monthly Drops</div></div>
-      <div class="promise-card"><div class="promise-num">DC</div><span class="promise-icon">⚔️</span><h3>Private <span>Owner's Discord</span></h3><p>An exclusive Discord with other AI Army owners — share wins, swap strategies, access insider tutorial videos, and get early access to new capabilities before anyone else.</p><div class="promise-badge">Exclusive Access · Owners Only</div></div>
+      <div class="promise-card"><div class="promise-num">30</div><span class="promise-icon"><div class="icon-3d"><div class="icon-shield"><div class="icon-shield-body"><div class="icon-shield-emblem"></div></div></div></div></span><h3><span>30-Day "We Fix It"</span> Warranty</h3><p>If anything we built isn't performing as promised within 30 days of delivery, we fix it — no questions, no fees, no runaround. If it's broken, that's our problem to solve.</p><div class="promise-badge">Guaranteed Fix · 30 Days</div></div>
+      <div class="promise-card"><div class="promise-num">1Y</div><span class="promise-icon"><div class="icon-3d"><div class="icon-refresh"><div class="icon-refresh-arc"></div><div class="icon-refresh-arrow"></div><div class="icon-refresh-arrow"></div></div></div></span><h3><span>Automatic Updates</span> Warranty</h3><p>AI moves fast. Your system won't fall behind. 6-month or 1-year automatic updates keep your agents, automations, and integrations current — without you touching anything.</p><div class="promise-badge">6-Month or 1-Year Coverage</div></div>
+      <div class="promise-card"><div class="promise-num">WK</div><span class="promise-icon"><div class="icon-3d"><div class="icon-mailbox"><div class="icon-mailbox-body"><div class="icon-mailbox-slot"></div></div><div class="icon-mailbox-flag"></div><div class="icon-mailbox-post"></div></div></div></span><h3>Weekly & Monthly <span>Insider Newsletters</span></h3><p>Exclusive Rara Avis newsletters — weekly tactical updates and monthly deep-dives on AI trends, growth strategies, and automation wins. Content you won't find anywhere else.</p><div class="promise-badge">Weekly + Monthly Drops</div></div>
+      <div class="promise-card"><div class="promise-num">DC</div><span class="promise-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></span><h3>Private <span>Owner's Discord</span></h3><p>An exclusive Discord with other AI Army owners — share wins, swap strategies, access insider tutorial videos, and get early access to new capabilities before anyone else.</p><div class="promise-badge">Exclusive Access · Owners Only</div></div>
     </div>
   </div>
 </section>
@@ -2940,7 +3051,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <h2 class="s-title reveal">You're Not Alone<br><span class="gtext">After Launch.</span></h2>
     <p class="s-body reveal">Every AI Army owner joins something bigger — a network of operators sharing real intelligence, strategy, and growth.</p>
     <div class="community-layout reveal">
-      <div class="comm-card discord-card"><span class="discord-icon">⚔️</span><h3>The <span>AI Army Owners</span> Discord</h3><p>A private, exclusive community for every business owner who deploys their AI Army. This is where the real conversations happen.</p><ul class="comm-perks"><li>Real-time tips and wins from other owners</li><li>Exclusive insider strategy drops from our team</li><li>Tutorial videos and training walkthroughs</li><li>Early access to new AI capabilities and updates</li><li>Direct line to the Rara Avis team for questions</li><li>Industry-specific channels by business type</li></ul></div>
+      <div class="comm-card discord-card"><span class="discord-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></span><h3>The <span>AI Army Owners</span> Discord</h3><p>A private, exclusive community for every business owner who deploys their AI Army. This is where the real conversations happen.</p><ul class="comm-perks"><li>Real-time tips and wins from other owners</li><li>Exclusive insider strategy drops from our team</li><li>Tutorial videos and training walkthroughs</li><li>Early access to new AI capabilities and updates</li><li>Direct line to the Rara Avis team for questions</li><li>Industry-specific channels by business type</li></ul></div>
       <div class="comm-card newsletter-card"><div class="nl-badge"><span class="live-pip"></span>Always On</div><h3><span>Insider Newsletters</span></h3><p>Two dedicated newsletters to keep your knowledge current and your edge sharp.</p><div class="nl-freq"><div class="nl-item"><div class="nl-dot"></div><div><div class="nl-item-text">Weekly AI Army Dispatch</div><div class="nl-item-label">Tactical · Automation wins · Rapid tips</div></div></div><div class="nl-item"><div class="nl-dot"></div><div><div class="nl-item-text">Monthly Growth Intelligence Report</div><div class="nl-item-label">Deep-dives · Market shifts · AI trends</div></div></div></div></div>
     </div>
   </div>
@@ -3097,7 +3208,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="caio-role">
-        <span class="caio-role-icon">🚀</span>
+        <span class="caio-role-icon"><div class="icon-3d"><div class="icon-rocket"><div class="icon-rocket-fin"></div><div class="icon-rocket-fin"></div><div class="icon-rocket-body"><div class="icon-rocket-window"></div></div><div class="icon-rocket-flame"></div></div></div></span>
         <h4>Growth Scaling & New Capabilities</h4>
         <p>When you're ready to scale — new markets, new services, new channels — your CAIO activates the next layer of your AI infrastructure. The army grows with you, up to 50 agents and beyond.</p>
       </div>
