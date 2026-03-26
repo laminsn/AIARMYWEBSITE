@@ -258,6 +258,45 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .score-item-label{color:var(--muted);}
 .score-item-val{color:var(--g3);font-weight:600;}
 
+/* ═══ BOOKING MODAL ═══ */
+.booking-overlay{position:fixed;inset:0;background:rgba(2,2,8,0.92);z-index:1100;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(8px);}
+.booking-overlay.active{opacity:1;pointer-events:all;}
+.booking-box{background:var(--bg1);border:1px solid var(--border-g);width:min(680px,95%);max-height:90vh;overflow-y:auto;position:relative;padding:0;}
+.booking-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-gold);background-size:200%;animation:shimmer 4s ease-in-out infinite;z-index:2;}
+.booking-header{padding:24px 32px;border-bottom:1px solid var(--border-dim);display:flex;align-items:center;justify-content:space-between;}
+.booking-title{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;letter-spacing:1px;}
+.booking-close{background:transparent;border:1px solid var(--border-dim);color:var(--muted);width:32px;height:32px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.booking-close:hover{border-color:var(--g3);color:var(--g3);}
+.booking-body{padding:32px;}
+.booking-form{display:flex;flex-direction:column;gap:16px;}
+.booking-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.booking-input{background:var(--bg2);border:1px solid var(--border-dim);color:var(--white);font-family:'Outfit',sans-serif;font-size:14px;padding:13px 16px;width:100%;outline:none;transition:border-color 0.2s;}
+.booking-input:focus{border-color:var(--g2);}
+.booking-input::placeholder{color:var(--faint);}
+.booking-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g2);margin-bottom:6px;display:block;}
+.booking-field{display:flex;flex-direction:column;}
+.booking-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:8px;}
+.booking-cal-header{text-align:center;font-size:10px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase;padding:8px 0;}
+.booking-cal-day{text-align:center;padding:10px 4px;font-size:13px;color:var(--soft);border:1px solid transparent;cursor:pointer;transition:all 0.2s;background:var(--bg2);}
+.booking-cal-day:hover{border-color:var(--g2);background:rgba(201,149,42,0.06);}
+.booking-cal-day.selected{border-color:var(--g3);background:rgba(232,190,69,0.12);color:var(--g3);font-weight:700;}
+.booking-cal-day.disabled{opacity:0.25;pointer-events:none;}
+.booking-cal-day.empty{background:transparent;pointer-events:none;}
+.booking-cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.booking-cal-month{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--soft);}
+.booking-cal-btn{background:transparent;border:1px solid var(--border-dim);color:var(--muted);width:28px;height:28px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.booking-cal-btn:hover{border-color:var(--g3);color:var(--g3);}
+.booking-time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px;}
+.booking-time-slot{text-align:center;padding:10px 8px;font-size:12px;font-weight:600;color:var(--soft);border:1px solid var(--border-dim);cursor:pointer;transition:all 0.2s;background:var(--bg2);letter-spacing:0.5px;}
+.booking-time-slot:hover{border-color:var(--g2);background:rgba(201,149,42,0.06);}
+.booking-time-slot.selected{border-color:var(--g3);background:rgba(232,190,69,0.12);color:var(--g3);}
+.booking-submit{background:var(--grad-gold);background-size:200%;animation:shimmer 4s ease-in-out infinite;color:var(--void);font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;margin-top:8px;}
+.booking-submit:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,149,42,0.35);}
+.booking-success{display:none;text-align:center;padding:40px 20px;}
+.booking-success.show{display:block;}
+.booking-success h3{font-family:'Syne',sans-serif;font-weight:700;font-size:24px;margin-bottom:12px;}
+.booking-success p{font-size:15px;color:var(--muted);line-height:1.7;}
+
 /* ═══ FLOATING SURVEY TRIGGER ═══ */
 .survey-trigger{position:fixed;right:24px;bottom:24px;z-index:500;background:var(--grad-gold);background-size:200%;animation:shimmer 4s ease-in-out infinite;color:var(--void);font-family:'Syne',sans-serif;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:14px 24px;border:none;cursor:none;transition:transform 0.2s,box-shadow 0.2s;display:flex;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(201,149,42,0.3);}
 .survey-trigger:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(201,149,42,0.45);}
@@ -366,16 +405,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .s-body{font-size:17px;color:var(--muted);line-height:1.8;max-width:540px;}
 
 
-/* ═══ PAIN POINTS SECTION - SCROLLING ═══ */
-.pain-scroll-section{background:var(--void);position:relative;padding:0;}
-.pain-scroll-container{position:relative;}
-.pain-scroll-item{min-height:100vh;display:flex;align-items:center;padding:80px 52px;position:relative;opacity:0;transform:translateY(60px);transition:opacity 1s ease,transform 1s ease;}
+/* ═══ PAIN POINTS SECTION - SCROLLING IN GOLD FRAME ═══ */
+.pain-scroll-section{background:var(--void);position:relative;padding:80px 52px;}
+.pain-frame{position:relative;max-width:1200px;margin:0 auto;border:2px solid var(--g2);box-shadow:0 0 40px rgba(201,149,42,0.08),inset 0 0 40px rgba(201,149,42,0.04);background:linear-gradient(180deg,rgba(2,2,8,0.98),rgba(5,5,15,0.98));overflow:hidden;}
+.pain-frame::before{content:'';position:absolute;inset:6px;border:1px solid rgba(201,149,42,0.25);pointer-events:none;z-index:3;}
+.pain-frame-header{padding:16px 24px;border-bottom:1px solid rgba(201,149,42,0.2);display:flex;align-items:center;gap:10px;background:rgba(201,149,42,0.03);}
+.pain-frame-dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(201,149,42,0.4);}
+.pain-frame-dot.r{background:rgba(192,57,43,0.6);border-color:rgba(192,57,43,0.8);}
+.pain-frame-dot.y{background:rgba(201,149,42,0.5);border-color:rgba(201,149,42,0.7);}
+.pain-frame-dot.g{background:rgba(46,204,113,0.4);border-color:rgba(46,204,113,0.6);}
+.pain-frame-title{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-left:8px;}
+.pain-scroll-container{position:relative;height:80vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--g2) transparent;}
+.pain-scroll-container::-webkit-scrollbar{width:4px;}
+.pain-scroll-container::-webkit-scrollbar-thumb{background:var(--g2);border-radius:2px;}
+.pain-scroll-container::-webkit-scrollbar-track{background:transparent;}
+.pain-scroll-item{min-height:80vh;display:flex;align-items:center;padding:80px 52px;position:relative;opacity:0;transform:translateY(60px);transition:opacity 1s ease,transform 1s ease;}
 .pain-scroll-item.visible{opacity:1;transform:translateY(0);}
-.pain-scroll-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.pain-scroll-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .pain-scroll-item:nth-child(even) .pain-scroll-inner{direction:rtl;}
 .pain-scroll-item:nth-child(even) .pain-scroll-content{direction:ltr;}
 .pain-scroll-content{max-width:580px;}
-.pain-scroll-visual{position:relative;height:500px;display:flex;align-items:center;justify-content:center;}
+.pain-scroll-visual{position:relative;height:400px;display:flex;align-items:center;justify-content:center;}
 .pain-stat-hero{font-family:'Syne',sans-serif;font-weight:800;font-size:120px;line-height:1;background:linear-gradient(135deg,#C0392B,#E74C3C);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-align:center;position:relative;}
 .pain-stat-label{font-size:14px;color:#C0392B;text-transform:uppercase;letter-spacing:2px;margin-top:16px;text-align:center;font-weight:600;}
 .pain-visual-chart{width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-around;gap:24px;}
@@ -1182,7 +1232,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 
 /* ═══ COMPARISON CHART ═══ */
 .compare-s{background:var(--bg0);}
-.compare-table-wrap{overflow-x:auto;margin-top:64px;}
+.compare-toggle-wrap{margin-top:64px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.compare-toggle{background:transparent;border:1px solid var(--border-g);color:var(--g3);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 24px;cursor:pointer;transition:all 0.2s;}
+.compare-toggle:hover{background:rgba(201,149,42,0.08);border-color:var(--g3);}
+.compare-toggle-label{font-size:12px;color:var(--muted);letter-spacing:1px;}
+.compare-table-wrap{overflow-x:auto;}
+.compare-table-wrap.collapsed .compare-detail-row{display:none;}
+.compare-table-wrap.collapsed .compare-cat-row td{cursor:pointer;}
+.compare-table-wrap.collapsed .compare-cat-row td:first-child::after{content:' +';color:var(--g3);}
 .compare-table{width:100%;border-collapse:collapse;min-width:800px;}
 .compare-table th{padding:20px 24px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-align:center;border-bottom:2px solid var(--border-dim);}
 .compare-table th:first-child{text-align:left;min-width:280px;}
@@ -1564,10 +1621,12 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
   .industry-panel h3{font-size:24px;}
   .industry-panel-grid{grid-template-columns:1fr;gap:16px;}
   .industry-use-cases ul{grid-template-columns:1fr;}
+  .pain-scroll-section{padding:40px 16px;}
+  .pain-scroll-container{height:60vh;}
   .pain-scroll-item{padding:60px 24px;min-height:auto;}
   .pain-scroll-inner{grid-template-columns:1fr;gap:40px;}
   .pain-scroll-item:nth-child(even) .pain-scroll-inner{direction:ltr;}
-  .pain-scroll-visual{height:auto;min-height:300px;}
+  .pain-scroll-visual{height:auto;min-height:200px;}
   .pain-stat-hero{font-size:80px;}
   .pain-scroll-title{font-size:32px;}
   .pain-stat-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
@@ -1593,7 +1652,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
   <div class="popup-box">
     <button class="popup-close" id="popup-close">✕</button>
     <div class="popup-inner" id="popup-form-wrap">
-      <div class="popup-eyebrow"><div class="icon-3d"><div class="icon-gift"><div class="icon-gift-box"></div><div class="icon-gift-bow"></div></div></div> Free Strategy Resource</div>
+      <div class="popup-eyebrow">Free Strategy Resource</div>
       <h2 class="popup-title">Get Your Free<br><span class="gtext">AI Army Blueprint</span></h2>
       <p class="popup-sub">Enter your info and we'll send you the exact <strong>5-step AI deployment checklist</strong> we use for every client — plus a free 20-min strategy call invite.</p>
       <div class="popup-form">
@@ -1609,9 +1668,72 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
     </div>
     <div class="popup-success" id="popup-success">
-      <div class="popup-success-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></div>
+      <div class="popup-success-icon"></div>
       <h3>Your Army Awaits.</h3>
       <p style="color:var(--muted);font-size:15px;line-height:1.7;">Check your email for your AI Army Blueprint. We'll be in touch to schedule your free strategy call.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BOOKING MODAL ═══ -->
+<div class="booking-overlay" id="booking-overlay">
+  <div class="booking-box">
+    <div class="booking-header">
+      <span class="booking-title">Book Your Free Strategy Call</span>
+      <button class="booking-close" onclick="closeBooking()">✕</button>
+    </div>
+    <div class="booking-body" id="booking-form-wrap">
+      <div class="booking-form">
+        <div class="booking-row">
+          <div class="booking-field">
+            <label class="booking-label">First Name</label>
+            <input class="booking-input" type="text" placeholder="First Name" id="book-fname">
+          </div>
+          <div class="booking-field">
+            <label class="booking-label">Last Name</label>
+            <input class="booking-input" type="text" placeholder="Last Name" id="book-lname">
+          </div>
+        </div>
+        <div class="booking-field">
+          <label class="booking-label">Email</label>
+          <input class="booking-input" type="email" placeholder="your@email.com" id="book-email">
+        </div>
+        <div class="booking-field">
+          <label class="booking-label">Phone Number</label>
+          <input class="booking-input" type="tel" placeholder="(555) 123-4567" id="book-phone">
+        </div>
+        <div class="booking-field">
+          <label class="booking-label">Select a Date</label>
+          <div class="booking-cal-nav">
+            <button class="booking-cal-btn" onclick="calNav(-1)">&#8249;</button>
+            <span class="booking-cal-month" id="cal-month-label"></span>
+            <button class="booking-cal-btn" onclick="calNav(1)">&#8250;</button>
+          </div>
+          <div class="booking-calendar" id="booking-calendar">
+            <div class="booking-cal-header">Sun</div><div class="booking-cal-header">Mon</div><div class="booking-cal-header">Tue</div><div class="booking-cal-header">Wed</div><div class="booking-cal-header">Thu</div><div class="booking-cal-header">Fri</div><div class="booking-cal-header">Sat</div>
+          </div>
+        </div>
+        <div class="booking-field">
+          <label class="booking-label">Best Time</label>
+          <div class="booking-time-grid" id="booking-times">
+            <div class="booking-time-slot" onclick="selectTime(this)">9:00 AM</div>
+            <div class="booking-time-slot" onclick="selectTime(this)">10:00 AM</div>
+            <div class="booking-time-slot" onclick="selectTime(this)">11:00 AM</div>
+            <div class="booking-time-slot" onclick="selectTime(this)">12:00 PM</div>
+            <div class="booking-time-slot" onclick="selectTime(this)">1:00 PM</div>
+            <div class="booking-time-slot" onclick="selectTime(this)">2:00 PM</div>
+            <div class="booking-time-slot" onclick="selectTime(this)">3:00 PM</div>
+            <div class="booking-time-slot" onclick="selectTime(this)">4:00 PM</div>
+          </div>
+        </div>
+        <button class="booking-submit" onclick="submitBooking()">Confirm My Strategy Call</button>
+        <p style="font-size:11px;color:var(--faint);text-align:center;margin-top:8px;">No pitch. No pressure. 20 minutes of pure strategy.</p>
+      </div>
+    </div>
+    <div class="booking-success" id="booking-success">
+      <h3>You're Booked.</h3>
+      <p>We'll confirm your strategy call via email and text. Look for a message from Rara Avis within the next few hours.</p>
+      <p id="booking-summary" style="margin-top:16px;font-size:13px;color:var(--g3);"></p>
     </div>
   </div>
 </div>
@@ -1732,11 +1854,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <div class="survey-q">How comfortable are you with using AI and automation in your business?</div>
         <div class="survey-hint">There's no wrong answer — this helps us calibrate the right deployment level for you.</div>
         <div class="survey-options">
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Beginner')"><div class="icon-3d"><div class="icon-plant"><div class="icon-plant-pot"></div><div class="icon-plant-stem"></div><div class="icon-plant-leaf"></div><div class="icon-plant-leaf"></div></div></div> <strong>Beginner</strong> — I've heard of ChatGPT but haven't really used AI in my business</div>
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Curious')"><div class="icon-3d"><div class="icon-search"><div class="icon-search-lens"></div><div class="icon-search-handle"></div></div></div> <strong>Curious</strong> — I've played around with a few AI tools but nothing systematic</div>
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Intermediate')"><div class="icon-3d"><div class="icon-gear"><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-circle"></div></div></div> <strong>Intermediate</strong> — I use some AI tools regularly but want to go deeper</div>
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Advanced')"><div class="icon-3d"><div class="icon-rocket"><div class="icon-rocket-fin"></div><div class="icon-rocket-fin"></div><div class="icon-rocket-body"><div class="icon-rocket-window"></div></div><div class="icon-rocket-flame"></div></div></div> <strong>Advanced</strong> — I have automations running but need a complete, integrated system</div>
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Skeptical')"><div class="icon-3d"><div class="icon-think"><div class="icon-think-face"><div class="icon-think-eye"></div><div class="icon-think-eye"></div><div class="icon-think-mouth"></div></div><div class="icon-think-hand"></div></div></div> <strong>Skeptical</strong> — I'm not fully convinced yet, but open to seeing the ROI</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Beginner')"><strong>Beginner</strong> — I've heard of ChatGPT but haven't really used AI in my business</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Curious')"><strong>Curious</strong> — I've played around with a few AI tools but nothing systematic</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Intermediate')"><strong>Intermediate</strong> — I use some AI tools regularly but want to go deeper</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Advanced')"><strong>Advanced</strong> — I have automations running but need a complete, integrated system</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Skeptical')"><strong>Skeptical</strong> — I'm not fully convinced yet, but open to seeing the ROI</div>
         </div>
         <div class="survey-nav">
           <button class="survey-btn-back" onclick="nextStep(5)">← Back</button>
@@ -1750,11 +1872,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <div class="survey-q">How urgently do you want to get your AI system deployed?</div>
         <div class="survey-hint">This helps us prioritize your strategy call booking.</div>
         <div class="survey-options">
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','ASAP')"><div class="icon-3d"><div class="icon-fire"><div class="icon-fire-flame"></div><div class="icon-fire-inner"></div></div></div> <strong>ASAP</strong> — I needed this yesterday, ready to move immediately</div>
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','Within 30 Days')">📅 <strong>Within 30 Days</strong> — Making a decision this month</div>
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','1–3 Months')">⏳ <strong>1–3 Months</strong> — Still researching and planning</div>
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','3–6 Months')"><div class="icon-3d"><div class="icon-dashboard"><div class="icon-dash-row"><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div></div></div></div> <strong>3–6 Months</strong> — Building toward it, no rush</div>
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','Just Curious')"><div class="icon-3d"><div class="icon-bulb"><div class="icon-bulb-glass"><div class="icon-bulb-filament"></div></div><div class="icon-bulb-base"><div class="icon-bulb-threads"></div></div></div></div> <strong>Just Exploring</strong> — Not ready yet but want to understand</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','ASAP')"><strong>ASAP</strong> — I needed this yesterday, ready to move immediately</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','Within 30 Days')"><strong>Within 30 Days</strong> — Making a decision this month</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','1–3 Months')"><strong>1–3 Months</strong> — Still researching and planning</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','3–6 Months')"><strong>3–6 Months</strong> — Building toward it, no rush</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','Just Curious')"><strong>Just Exploring</strong> — Not ready yet but want to understand</div>
         </div>
         <div class="survey-nav">
           <button class="survey-btn-back" onclick="nextStep(6)">← Back</button>
@@ -1812,7 +1934,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <br>
         <input class="survey-input" type="text" placeholder="Your Name" id="res-name" style="margin-bottom:8px;">
         <input class="survey-input" type="email" placeholder="Email — I'll send your full score report" id="res-email">
-        <a href="https://raravismarketing.com/book" target="_blank" class="btn-gold" style="display:block;width:100%;text-align:center;margin-top:16px;">Book My Free Strategy Call →</a>
+        <a href="#" onclick="openBooking();return false;" class="btn-gold" style="display:block;width:100%;text-align:center;margin-top:16px;">Book My Free Strategy Call →</a>
         <p style="font-size:12px;color:var(--faint);margin-top:12px;text-align:center;">We'll walk through your score live and show you exactly which AI Army package is right for you.</p>
       </div>
 
@@ -1841,7 +1963,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <li><a href="#caio">Fractional CAIO</a></li>
     <li><a href="#process">Process</a></li>
   </ul>
-  <a href="https://raravismarketing.com/book" class="nav-cta" target="_blank"><span>Deploy Your Army</span></a>
+  <a href="#" onclick="openBooking();return false;" class="nav-cta"><span>Deploy Your Army</span></a>
 </nav>
 
 
@@ -1867,7 +1989,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
   <p class="hero-sub">Your business, <em>fully deployed.</em></p>
   <p class="hero-body">A complete AI operating system for <strong>solopreneurs and small-to-medium business owners</strong> — trained on the same principles elite operators use to build empires, then built specifically for your industry, your customers, and your goals.<br><br><strong>Not a tool. Not a subscription. A trained, intelligent workforce that works 24/7.</strong></p>
   <div class="hero-ctas">
-    <a href="https://raravismarketing.com/book" class="btn-gold" target="_blank">Deploy Your AI Army</a>
+    <a href="#" onclick="openBooking();return false;" class="btn-gold">Deploy Your AI Army</a>
     <a href="#services" class="btn-outline">See What's Included</a>
   </div>
   <div class="hero-metrics">
@@ -1891,7 +2013,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
       <!-- REPLACE src WITH YOUR ACTUAL TAVUS/VIMEO/YOUTUBE EMBED URL -->
       <!-- <iframe style="width:100%;aspect-ratio:16/9;border:none;" src="YOUR_VIDEO_EMBED_URL" allowfullscreen></iframe> -->
-      <div class="video-placeholder" onclick="window.open('https://raravismarketing.com/book','_blank')">
+      <div class="video-placeholder" onclick="openBooking()">
         <div class="video-play-btn"><div class="video-play-icon"></div></div>
         <div class="video-placeholder-text">Watch Alex — Our AI in Action</div>
         <div class="video-placeholder-sub">Click to book a live demo call</div>
@@ -1906,13 +2028,13 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <div class="industry-tabs-label">Built for your industry →</div>
     <div class="industry-tabs">
       <button class="industry-tab active" onclick="setIndustry(this,'all')">All Industries</button>
-      <button class="industry-tab" onclick="setIndustry(this,'healthcare')"><div class="icon-3d"><div class="icon-hospital"><div class="icon-hospital-cross"></div></div></div> Healthcare</button>
-      <button class="industry-tab" onclick="setIndustry(this,'realestate')"><div class="icon-3d"><div class="icon-house"><div class="icon-house-roof"></div><div class="icon-house-body"></div><div class="icon-house-door"></div></div></div> Real Estate</button>
-      <button class="industry-tab" onclick="setIndustry(this,'security')"><div class="icon-3d"><div class="icon-shield"><div class="icon-shield-body"><div class="icon-shield-emblem"></div></div></div></div> Security</button>
-      <button class="industry-tab" onclick="setIndustry(this,'restaurant')"><div class="icon-3d"><div class="icon-utensils"><div class="icon-fork"></div><div class="icon-knife"></div></div></div> Restaurant</button>
-      <button class="industry-tab" onclick="setIndustry(this,'trades')"><div class="icon-3d"><div class="icon-wrench"><div class="icon-wrench-handle"></div><div class="icon-wrench-head"></div></div></div> Trades</button>
-      <button class="industry-tab" onclick="setIndustry(this,'legal')"><div class="icon-3d"><div class="icon-scales"><div class="icon-scales-base"></div><div class="icon-scales-pole"></div><div class="icon-scales-beam"></div><div class="icon-scales-pan"></div><div class="icon-scales-pan"></div></div></div> Professional Svcs</button>
-      <button class="industry-tab" onclick="setIndustry(this,'ecommerce')"><div class="icon-3d"><div class="icon-cart"><div class="icon-cart-body"></div><div class="icon-cart-handle"></div><div class="icon-cart-wheel"></div><div class="icon-cart-wheel"></div></div></div> E-Commerce</button>
+      <button class="industry-tab" onclick="setIndustry(this,'healthcare')">Healthcare</button>
+      <button class="industry-tab" onclick="setIndustry(this,'realestate')">Real Estate</button>
+      <button class="industry-tab" onclick="setIndustry(this,'security')">Security</button>
+      <button class="industry-tab" onclick="setIndustry(this,'restaurant')">Restaurant</button>
+      <button class="industry-tab" onclick="setIndustry(this,'trades')">Trades</button>
+      <button class="industry-tab" onclick="setIndustry(this,'legal')">Professional Svcs</button>
+      <button class="industry-tab" onclick="setIndustry(this,'ecommerce')">E-Commerce</button>
     </div>
   </div>
 </div>
@@ -2268,7 +2390,14 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
 
 <!-- ═══ PAIN POINTS SECTION - NEW SCROLLING ═══ -->
 <section class="pain-scroll-section" id="pain">
-  <div class="pain-scroll-container">
+  <div class="pain-frame">
+    <div class="pain-frame-header">
+      <div class="pain-frame-dot r"></div>
+      <div class="pain-frame-dot y"></div>
+      <div class="pain-frame-dot g"></div>
+      <span class="pain-frame-title">The Problem</span>
+    </div>
+    <div class="pain-scroll-container">
 
     <!-- INTRO PANEL -->
     <div class="pain-scroll-item" data-scroll-trigger>
@@ -2301,16 +2430,6 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
           </div>
         </div>
         <div class="pain-scroll-visual">
-          <div class="pain-visual-icon">
-            <div class="icon-3d">
-              <div class="icon-chart">
-                <div class="icon-chart-bar"></div>
-                <div class="icon-chart-bar"></div>
-                <div class="icon-chart-bar"></div>
-                <div class="icon-chart-bar"></div>
-              </div>
-            </div>
-          </div>
           <div class="pain-visual-content">
             <div class="pain-stat-hero">82%</div>
             <div class="pain-stat-label">of small businesses fail<br>due to cash flow & operations</div>
@@ -2338,17 +2457,6 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
           </p>
         </div>
         <div class="pain-scroll-visual">
-          <div class="pain-visual-icon">
-            <div class="icon-3d">
-              <div class="icon-gear">
-                <div class="icon-gear-tooth"></div>
-                <div class="icon-gear-tooth"></div>
-                <div class="icon-gear-tooth"></div>
-                <div class="icon-gear-tooth"></div>
-                <div class="icon-gear-circle"></div>
-              </div>
-            </div>
-          </div>
           <div class="pain-visual-content">
             <div class="pain-stat-hero">68%</div>
             <div class="pain-stat-label">of business owners work<br>50+ hours per week</div>
@@ -2379,16 +2487,6 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
           </div>
         </div>
         <div class="pain-scroll-visual">
-          <div class="pain-visual-icon">
-            <div class="icon-3d">
-              <div class="icon-void">
-                <div class="icon-void-outer">
-                  <div class="icon-void-inner"></div>
-                  <div class="icon-void-middle"></div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="pain-visual-content">
             <div class="pain-stat-hero">79%</div>
             <div class="pain-stat-label">of leads lost due to<br>slow follow-up</div>
@@ -2473,13 +2571,6 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
           </p>
         </div>
         <div class="pain-scroll-visual">
-          <div class="pain-visual-icon">
-            <div class="icon-3d">
-              <div class="icon-lightning">
-                <div class="icon-lightning-bolt"></div>
-              </div>
-            </div>
-          </div>
           <div class="pain-visual-content">
             <div class="pain-stat-hero">6<span style="font-size:60px">mo</span></div>
             <div class="pain-stat-label">AI evolves faster than<br>you can keep up</div>
@@ -2488,6 +2579,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
     </div>
 
+    </div>
   </div>
 </section>
 
@@ -2535,16 +2627,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
-        <span class="pain-card-icon">
-          <div class="icon-3d">
-            <div class="icon-void">
-              <div class="icon-void-outer">
-                <div class="icon-void-inner"></div>
-                <div class="icon-void-middle"></div>
-              </div>
-            </div>
-          </div>
-        </span>
+        <span class="pain-card-icon"></span>
         <div class="pain-card-num">79%</div>
         <div class="pain-card-stat-label">of leads are lost due to slow follow-up</div>
         <h3>Leads Fall Through Every Day</h3>
@@ -2552,16 +2635,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
-        <span class="pain-card-icon">
-          <div class="icon-3d">
-            <div class="icon-chart">
-              <div class="icon-chart-bar"></div>
-              <div class="icon-chart-bar"></div>
-              <div class="icon-chart-bar"></div>
-              <div class="icon-chart-bar"></div>
-            </div>
-          </div>
-        </span>
+        <span class="pain-card-icon"></span>
         <div class="pain-card-num">91%</div>
         <div class="pain-card-stat-label">of SMBs have no documented KPIs</div>
         <h3>You Can't Scale What You Can't See</h3>
@@ -2569,18 +2643,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
-        <span class="pain-card-icon">
-          <div class="icon-3d">
-            <div class="icon-brain">
-              <div class="icon-brain-main">
-                <div class="icon-brain-fold"></div>
-                <div class="icon-brain-fold"></div>
-                <div class="icon-brain-fold"></div>
-                <div class="icon-brain-fold"></div>
-              </div>
-            </div>
-          </div>
-        </span>
+        <span class="pain-card-icon"></span>
         <div class="pain-card-num">73%</div>
         <div class="pain-card-stat-label">of SMB owners say staffing is their #1 challenge</div>
         <h3>Understaffed, Undertrained, Overwhelmed</h3>
@@ -2588,13 +2651,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
-        <span class="pain-card-icon">
-          <div class="icon-3d">
-            <div class="icon-lightning">
-              <div class="icon-lightning-bolt"></div>
-            </div>
-          </div>
-        </span>
+        <span class="pain-card-icon"></span>
         <div class="pain-card-num">5× </div>
         <div class="pain-card-stat-label">faster — AI evolves every 6 months</div>
         <h3>AI Is Moving Faster Than You Can Keep Up</h3>
@@ -2602,16 +2659,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
-        <span class="pain-card-icon">
-          <div class="icon-3d">
-            <div class="icon-barrier">
-              <div class="icon-barrier-main">
-                <div class="icon-barrier-stripe"></div>
-                <div class="icon-barrier-stripe"></div>
-              </div>
-            </div>
-          </div>
-        </span>
+        <span class="pain-card-icon"></span>
         <div class="pain-card-num">62%</div>
         <div class="pain-card-stat-label">of business owners identify as non-technical</div>
         <h3>Technology Is a Wall, Not a Door</h3>
@@ -2811,14 +2859,14 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <h2 class="s-title reveal">Everything Your<br><span class="gtext">Business Needs.</span></h2>
     <p class="s-body reveal">Six core pillars, built to interlock. Each one engineered specifically around your industry, your workflow, and your business model — not a template, not a demo.</p>
     <div class="services-layout reveal">
-      <div class="svc"><div class="svc-count">01 / 06</div><div class="svc-icon-wrap">📋</div><h3>SOP Setup</h3><p>Your entire business systematized and documented — so nothing lives inside your head and every process runs without you. Onboarding, fulfillment, customer flows, team handoffs. All of it, organized and searchable.</p><div class="svc-pills"><span class="pill">Process Docs</span><span class="pill">Playbooks</span><span class="pill">Workflows</span><span class="pill">Templates</span></div></div>
-      <div class="svc"><div class="svc-count">02 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-gear"><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-circle"></div></div></div></div><h3>CRM Configuration</h3><p>A fully configured CRM tailored to your sales cycle, lead volume, and customer journey — with pipelines, automated follow-ups, and booking flows built from day one so zero leads fall through the cracks.</p><div class="svc-pills"><span class="pill">Sales Pipelines</span><span class="pill">Lead Capture</span><span class="pill">Auto Follow-Up</span><span class="pill">Funnels</span></div></div>
-      <div class="svc"><div class="svc-count">03 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-dashboard"><div class="icon-dash-row"><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div></div></div></div></div><h3>Spreadsheet Systems</h3><p>Custom-built data infrastructure that tracks what matters — revenue, leads, KPIs, operations. Built to feed decision-making with clean data and automated reporting, not manual entry.</p><div class="svc-pills"><span class="pill">KPI Dashboards</span><span class="pill">Revenue Tracking</span><span class="pill">Pipeline Data</span><span class="pill">Auto Reports</span></div></div>
-      <div class="svc"><div class="svc-count">04 / 06</div><div class="svc-icon-wrap">🤖</div><h3>Industry-Trained AI Agents</h3><p>AI agents that know your business, your customers, and your industry — calibrated to your brand voice, your niche, and your specific products or services. Not generic. Not borrowed. Yours. Scalable up to 50 agents.</p><div class="svc-pills"><span class="pill">Custom Training</span><span class="pill">Brand Voice</span><span class="pill">Niche Knowledge</span><span class="pill">Up to 50 Agents</span></div></div>
-      <div class="svc wide"><div class="svc-count">05 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-refresh"><div class="icon-refresh-arc"></div><div class="icon-refresh-arrow"></div><div class="icon-refresh-arrow"></div></div></div></div><h3>Full Business Automation</h3><p>Hands-off operations end to end. AI answers your phones, replies to texts, manages your calendar, requests Google Reviews, handles reschedules, manages customer support, and posts on every social platform — all without you touching it. Your AI Army posts from your recorded content, manages inboxes across email, social, and phone, and grows your brand on autopilot.</p><div class="svc-pills"><span class="pill">AI Phone Answering</span><span class="pill">SMS Automation</span><span class="pill">Google Reviews</span><span class="pill">Calendar & Bookings</span><span class="pill">Customer Support</span><span class="pill">Social Posting</span><span class="pill">Inbox Management</span><span class="pill">Email Automation</span></div></div>
+      <div class="svc"><div class="svc-count">01 / 06</div><div class="svc-icon-wrap"></div><h3>SOP Setup</h3><p>Your entire business systematized and documented — so nothing lives inside your head and every process runs without you. Onboarding, fulfillment, customer flows, team handoffs. All of it, organized and searchable.</p><div class="svc-pills"><span class="pill">Process Docs</span><span class="pill">Playbooks</span><span class="pill">Workflows</span><span class="pill">Templates</span></div></div>
+      <div class="svc"><div class="svc-count">02 / 06</div><div class="svc-icon-wrap"></div><h3>CRM Configuration</h3><p>A fully configured CRM tailored to your sales cycle, lead volume, and customer journey — with pipelines, automated follow-ups, and booking flows built from day one so zero leads fall through the cracks.</p><div class="svc-pills"><span class="pill">Sales Pipelines</span><span class="pill">Lead Capture</span><span class="pill">Auto Follow-Up</span><span class="pill">Funnels</span></div></div>
+      <div class="svc"><div class="svc-count">03 / 06</div><div class="svc-icon-wrap"></div><h3>Spreadsheet Systems</h3><p>Custom-built data infrastructure that tracks what matters — revenue, leads, KPIs, operations. Built to feed decision-making with clean data and automated reporting, not manual entry.</p><div class="svc-pills"><span class="pill">KPI Dashboards</span><span class="pill">Revenue Tracking</span><span class="pill">Pipeline Data</span><span class="pill">Auto Reports</span></div></div>
+      <div class="svc"><div class="svc-count">04 / 06</div><div class="svc-icon-wrap"></div><h3>Industry-Trained AI Agents</h3><p>AI agents that know your business, your customers, and your industry — calibrated to your brand voice, your niche, and your specific products or services. Not generic. Not borrowed. Yours. Scalable up to 50 agents.</p><div class="svc-pills"><span class="pill">Custom Training</span><span class="pill">Brand Voice</span><span class="pill">Niche Knowledge</span><span class="pill">Up to 50 Agents</span></div></div>
+      <div class="svc wide"><div class="svc-count">05 / 06</div><div class="svc-icon-wrap"></div><h3>Full Business Automation</h3><p>Hands-off operations end to end. AI answers your phones, replies to texts, manages your calendar, requests Google Reviews, handles reschedules, manages customer support, and posts on every social platform — all without you touching it. Your AI Army posts from your recorded content, manages inboxes across email, social, and phone, and grows your brand on autopilot.</p><div class="svc-pills"><span class="pill">AI Phone Answering</span><span class="pill">SMS Automation</span><span class="pill">Google Reviews</span><span class="pill">Calendar & Bookings</span><span class="pill">Customer Support</span><span class="pill">Social Posting</span><span class="pill">Inbox Management</span><span class="pill">Email Automation</span></div></div>
     </div>
     <div class="books-callout reveal" style="margin-top:2px;border-top:none;">
-      <div class="svc-icon-wrap" style="font-size:32px;margin:0;"><div class="icon-3d"><div class="icon-globe"><div class="icon-globe-sphere"><div class="icon-globe-continent"></div><div class="icon-globe-line"></div><div class="icon-globe-line"></div></div></div></div></div>
+      <div class="svc-icon-wrap" style="font-size:32px;margin:0;"></div>
       <div><p style="font-family:'Syne',sans-serif;font-weight:700;font-size:22px;margin-bottom:10px;"><span class="gtext">06 / 06 — Website + Social Presence</span></p><p style="font-size:15px;color:var(--muted);line-height:1.75;">A full AI-powered website built in a matter of days — designed to convert, built to rank. Add social media profile buildout and your AI Army handles content posting, inbox management, and brand growth across every platform automatically.</p></div>
     </div>
   </div>
@@ -2869,12 +2917,16 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <h2 class="s-title reveal">We Don't Just<br><span class="gtext">Compete. We Win.</span></h2>
     <p class="s-body reveal">See exactly how deploying with us compares to other agencies, going the DIY route, hiring freelancers, or trying to figure it out yourself.</p>
 
-    <div class="compare-table-wrap reveal">
+    <div class="compare-toggle-wrap reveal">
+      <span class="compare-toggle-label">35 line items across 6 categories</span>
+      <button class="compare-toggle" onclick="toggleCompare()">Expand Full Chart</button>
+    </div>
+    <div class="compare-table-wrap reveal collapsed" id="compare-table-wrap">
       <table class="compare-table">
         <thead>
           <tr>
             <th></th>
-            <th class="col-rara-header"><div class="icon-3d" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div> Rara Avis AI Army</th>
+            <th class="col-rara-header">Rara Avis AI Army</th>
             <th class="col-agency">Big Agency</th>
             <th class="col-diy">DIY / Software Tools</th>
             <th class="col-freelance">Freelancer</th>
@@ -2884,61 +2936,61 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <tbody>
           <!-- SETUP & STRATEGY -->
           <tr class="compare-cat-row"><td colspan="6">SETUP & STRATEGY</td></tr>
-          <tr><td>Custom strategy built around your specific industry & goals</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Discovery & business audit before building anything</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>SOPs documented & business systematized</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>CRM fully configured & pipeline-ready</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Custom spreadsheet & reporting systems built</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>KPI dashboards and growth metrics mapped</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Custom strategy built around your specific industry & goals</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Discovery & business audit before building anything</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>SOPs documented & business systematized</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>CRM fully configured & pipeline-ready</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Custom spreadsheet & reporting systems built</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>KPI dashboards and growth metrics mapped</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
 
           <!-- AI & AGENTS -->
           <tr class="compare-cat-row"><td colspan="6">AI AGENTS & INTELLIGENCE</td></tr>
-          <tr><td>AI agents trained on 200+ business & sales books</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Agents calibrated to your specific industry niche</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Agents trained in your brand voice & tone</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Scalable up to 50 agents as you grow</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Central AI command dashboard included</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Agents that understand context & handle complex conversations</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>AI agents trained on 200+ business & sales books</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Agents calibrated to your specific industry niche</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Agents trained in your brand voice & tone</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Scalable up to 50 agents as you grow</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Central AI command dashboard included</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Agents that understand context & handle complex conversations</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
 
           <!-- AUTOMATION -->
           <tr class="compare-cat-row"><td colspan="6">AUTOMATION & OPERATIONS</td></tr>
-          <tr><td>AI phone call answering & outbound calls</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>SMS automation & reply sequences</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Email automation & nurture sequences</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Google Review request automation</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Calendar, scheduling & booking automation</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Customer service & support handling (AI-powered)</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Reschedule management & reminders</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>AI phone call answering & outbound calls</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>SMS automation & reply sequences</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Email automation & nurture sequences</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Google Review request automation</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Calendar, scheduling & booking automation</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Customer service & support handling (AI-powered)</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Reschedule management & reminders</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
 
           <!-- SOCIAL & BRAND -->
           <tr class="compare-cat-row"><td colspan="6">SOCIAL MEDIA & BRAND GROWTH</td></tr>
-          <tr><td>Social media posting automation (AI posts on your behalf)</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Multi-platform inbox management (social, email, phone)</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Social media profiles created & branded</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Content pipeline from your raw recordings</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>AI-powered website built in days</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Social media posting automation (AI posts on your behalf)</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Multi-platform inbox management (social, email, phone)</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Social media profiles created & branded</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Content pipeline from your raw recordings</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>AI-powered website built in days</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
 
           <!-- SUPPORT & CONTINUITY -->
           <tr class="compare-cat-row"><td colspan="6">SUPPORT, WARRANTY & COMMUNITY</td></tr>
-          <tr><td>30-day "we fix it" warranty on all deliverables</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>6-month to 1-year automatic update warranty</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Private Discord community of AI Army owners</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Weekly + monthly insider newsletters</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Everything is integrated & works together as a system</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>Owner-trained — you understand your system after handoff</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-yes">✦</span></td></tr>
-          <tr><td>Fully done-for-you (no learning curve for the owner)</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>30-day "we fix it" warranty on all deliverables</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>6-month to 1-year automatic update warranty</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Private Discord community of AI Army owners</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Weekly + monthly insider newsletters</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Everything is integrated & works together as a system</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Owner-trained — you understand your system after handoff</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-yes">✦</span></td></tr>
+          <tr class="compare-detail-row"><td>Fully done-for-you (no learning curve for the owner)</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td></tr>
 
           <!-- COST -->
           <tr class="compare-cat-row"><td colspan="6">INVESTMENT & VALUE</td></tr>
-          <tr><td>Transparent, flat-rate project pricing</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-yes">✦</span></td></tr>
-          <tr><td>No ongoing software license required from us</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td></tr>
-          <tr><td>Time to deploy: days, not months</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
-          <tr><td>ROI visible within first 30 days</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>Transparent, flat-rate project pricing</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-partial">◑</span></td><td><span class="check-yes">✦</span></td></tr>
+          <tr class="compare-detail-row"><td>No ongoing software license required from us</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td></tr>
+          <tr class="compare-detail-row"><td>Time to deploy: days, not months</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
+          <tr class="compare-detail-row"><td>ROI visible within first 30 days</td><td class="col-rara"><span class="check-yes">✦</span></td><td><span class="check-no">✕</span></td><td><span class="check-partial">◑</span></td><td><span class="check-no">✕</span></td><td><span class="check-no">✕</span></td></tr>
 
           <!-- BOTTOM ROW -->
           <tr class="compare-bottom-row">
             <td style="font-size:13px;color:var(--muted);">Typical Investment</td>
-            <td class="col-rara"><span class="price-tag">$5K – $15K</span><span class="price-note">one-time · see packages</span></td>
+            <td class="col-rara"><span class="price-tag" style="font-size:14px;">Book a Call</span><span class="price-note">custom quote per business</span></td>
             <td><span class="price-tag" style="color:var(--soft);">$25K–$100K+</span><span class="price-note">+ ongoing retainers</span></td>
             <td><span class="price-tag" style="color:var(--soft);">$100–$2K/mo</span><span class="price-note">tools only · no build</span></td>
             <td><span class="price-tag" style="color:var(--soft);">$3K–$15K</span><span class="price-note">fragmented · no system</span></td>
@@ -3009,7 +3061,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
           <div class="result-box"><div class="result-box-num" id="r-roi">0×</div><div class="result-box-label">Estimated ROI on<br>AI Army Investment</div></div>
         </div>
         <div class="result-verdict" id="r-verdict">Adjust the sliders to see your personalized numbers.</div>
-        <a href="https://raravismarketing.com/book" class="calc-cta" target="_blank">See Exactly How to Recover This →</a>
+        <a href="#" onclick="openBooking();return false;" class="calc-cta">See Exactly How to Recover This →</a>
       </div>
     </div>
   </div>
@@ -3044,10 +3096,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <h2 class="s-title reveal">The <span class="gtext">Rara Avis Promise.</span></h2>
     <p class="s-body reveal">We don't just deliver and disappear. Every deployment comes backed by guarantees that actually mean something.</p>
     <div class="promise-grid reveal">
-      <div class="promise-card"><div class="promise-num">30</div><span class="promise-icon"><div class="icon-3d"><div class="icon-shield"><div class="icon-shield-body"><div class="icon-shield-emblem"></div></div></div></div></span><h3><span>30-Day "We Fix It"</span> Warranty</h3><p>If anything we built isn't performing as promised within 30 days of delivery, we fix it — no questions, no fees, no runaround. If it's broken, that's our problem to solve.</p><div class="promise-badge">Guaranteed Fix · 30 Days</div></div>
-      <div class="promise-card"><div class="promise-num">1Y</div><span class="promise-icon"><div class="icon-3d"><div class="icon-refresh"><div class="icon-refresh-arc"></div><div class="icon-refresh-arrow"></div><div class="icon-refresh-arrow"></div></div></div></span><h3><span>Automatic Updates</span> Warranty</h3><p>AI moves fast. Your system won't fall behind. 6-month or 1-year automatic updates keep your agents, automations, and integrations current — without you touching anything.</p><div class="promise-badge">6-Month or 1-Year Coverage</div></div>
-      <div class="promise-card"><div class="promise-num">WK</div><span class="promise-icon"><div class="icon-3d"><div class="icon-mailbox"><div class="icon-mailbox-body"><div class="icon-mailbox-slot"></div></div><div class="icon-mailbox-flag"></div><div class="icon-mailbox-post"></div></div></div></span><h3>Weekly & Monthly <span>Insider Newsletters</span></h3><p>Exclusive Rara Avis newsletters — weekly tactical updates and monthly deep-dives on AI trends, growth strategies, and automation wins. Content you won't find anywhere else.</p><div class="promise-badge">Weekly + Monthly Drops</div></div>
-      <div class="promise-card"><div class="promise-num">DC</div><span class="promise-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></span><h3>Private <span>Owner's Discord</span></h3><p>An exclusive Discord with other AI Army owners — share wins, swap strategies, access insider tutorial videos, and get early access to new capabilities before anyone else.</p><div class="promise-badge">Exclusive Access · Owners Only</div></div>
+      <div class="promise-card"><div class="promise-num">30</div><span class="promise-icon"></span><h3><span>30-Day "We Fix It"</span> Warranty</h3><p>If anything we built isn't performing as promised within 30 days of delivery, we fix it — no questions, no fees, no runaround. If it's broken, that's our problem to solve.</p><div class="promise-badge">Guaranteed Fix · 30 Days</div></div>
+      <div class="promise-card"><div class="promise-num">1Y</div><span class="promise-icon"></span><h3><span>Automatic Updates</span> Warranty</h3><p>AI moves fast. Your system won't fall behind. 6-month or 1-year automatic updates keep your agents, automations, and integrations current — without you touching anything.</p><div class="promise-badge">6-Month or 1-Year Coverage</div></div>
+      <div class="promise-card"><div class="promise-num">WK</div><span class="promise-icon"></span><h3>Weekly & Monthly <span>Insider Newsletters</span></h3><p>Exclusive Rara Avis newsletters — weekly tactical updates and monthly deep-dives on AI trends, growth strategies, and automation wins. Content you won't find anywhere else.</p><div class="promise-badge">Weekly + Monthly Drops</div></div>
+      <div class="promise-card"><div class="promise-num">DC</div><span class="promise-icon"></span><h3>Private <span>Owner's Discord</span></h3><p>An exclusive Discord with other AI Army owners — share wins, swap strategies, access insider tutorial videos, and get early access to new capabilities before anyone else.</p><div class="promise-badge">Exclusive Access · Owners Only</div></div>
     </div>
   </div>
 </section>
@@ -3059,7 +3111,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <h2 class="s-title reveal">You're Not Alone<br><span class="gtext">After Launch.</span></h2>
     <p class="s-body reveal">Every AI Army owner joins something bigger — a network of operators sharing real intelligence, strategy, and growth.</p>
     <div class="community-layout reveal">
-      <div class="comm-card discord-card"><span class="discord-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></span><h3>The <span>AI Army Owners</span> Discord</h3><p>A private, exclusive community for every business owner who deploys their AI Army. This is where the real conversations happen.</p><ul class="comm-perks"><li>Real-time tips and wins from other owners</li><li>Exclusive insider strategy drops from our team</li><li>Tutorial videos and training walkthroughs</li><li>Early access to new AI capabilities and updates</li><li>Direct line to the Rara Avis team for questions</li><li>Industry-specific channels by business type</li></ul></div>
+      <div class="comm-card discord-card"><span class="discord-icon"></span><h3>The <span>AI Army Owners</span> Discord</h3><p>A private, exclusive community for every business owner who deploys their AI Army. This is where the real conversations happen.</p><ul class="comm-perks"><li>Real-time tips and wins from other owners</li><li>Exclusive insider strategy drops from our team</li><li>Tutorial videos and training walkthroughs</li><li>Early access to new AI capabilities and updates</li><li>Direct line to the Rara Avis team for questions</li><li>Industry-specific channels by business type</li></ul></div>
       <div class="comm-card newsletter-card"><div class="nl-badge"><span class="live-pip"></span>Always On</div><h3><span>Insider Newsletters</span></h3><p>Two dedicated newsletters to keep your knowledge current and your edge sharp.</p><div class="nl-freq"><div class="nl-item"><div class="nl-dot"></div><div><div class="nl-item-text">Weekly AI Army Dispatch</div><div class="nl-item-label">Tactical · Automation wins · Rapid tips</div></div></div><div class="nl-item"><div class="nl-dot"></div><div><div class="nl-item-text">Monthly Growth Intelligence Report</div><div class="nl-item-label">Deep-dives · Market shifts · AI trends</div></div></div></div></div>
     </div>
   </div>
@@ -3140,83 +3192,37 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <div class="caio-roles-grid">
 
       <div class="caio-role">
-        <span class="caio-role-icon">
-          <div class="icon-3d">
-            <div class="icon-compass">
-              <div class="icon-compass-ring">
-                <div class="icon-compass-needle"></div>
-                <div class="icon-compass-center"></div>
-              </div>
-            </div>
-          </div>
-        </span>
+        <span class="caio-role-icon"></span>
         <h4>AI Strategy & Roadmap</h4>
         <p>We map your 12-month AI roadmap — every tool, every agent, every integration — sequenced for maximum impact and minimum disruption. You don't have to figure out what to do next. We tell you.</p>
       </div>
 
       <div class="caio-role">
-        <span class="caio-role-icon">
-          <div class="icon-3d">
-            <div class="icon-lab">
-              <div class="icon-lab-base"></div>
-              <div class="icon-lab-tube">
-                <div class="icon-lab-liquid"></div>
-              </div>
-            </div>
-          </div>
-        </span>
+        <span class="caio-role-icon"></span>
         <h4>Technology Evaluation & Selection</h4>
         <p>The AI landscape changes every 90 days. We evaluate, test, and select the right platforms for your stack so you're never running outdated tools — and never paying for platforms you don't need.</p>
       </div>
 
       <div class="caio-role">
-        <span class="caio-role-icon">
-          <div class="icon-3d">
-            <div class="icon-gear">
-              <div class="icon-gear-tooth"></div>
-              <div class="icon-gear-tooth"></div>
-              <div class="icon-gear-tooth"></div>
-              <div class="icon-gear-tooth"></div>
-              <div class="icon-gear-circle"></div>
-            </div>
-          </div>
-        </span>
+        <span class="caio-role-icon"></span>
         <h4>Systems Integration & Oversight</h4>
         <p>Every AI tool, automation, and agent in your business is monitored, optimized, and kept current. If something drifts or a platform changes its API, we catch it and fix it before you even notice.</p>
       </div>
 
       <div class="caio-role">
-        <span class="caio-role-icon">
-          <div class="icon-3d">
-            <div class="icon-dashboard">
-              <div class="icon-dash-row">
-                <div class="icon-dash-bar"></div>
-                <div class="icon-dash-bar"></div>
-                <div class="icon-dash-bar"></div>
-              </div>
-            </div>
-          </div>
-        </span>
+        <span class="caio-role-icon"></span>
         <h4>KPI Tracking & AI ROI Reporting</h4>
         <p>You get monthly AI performance reports — leads contacted, hours saved, reviews generated, bookings automated, response times — so you can see exactly what your AI Army is producing in dollars and time.</p>
       </div>
 
       <div class="caio-role">
-        <span class="caio-role-icon">
-          <div class="icon-3d">
-            <div class="icon-grad">
-              <div class="icon-grad-board"></div>
-              <div class="icon-grad-cap"></div>
-              <div class="icon-grad-tassel"></div>
-            </div>
-          </div>
-        </span>
+        <span class="caio-role-icon"></span>
         <h4>Team Training & AI Literacy</h4>
         <p>As you grow and bring on team members, we train them on your AI systems — so your people amplify the automation instead of working around it. Your team becomes AI-native, not AI-resistant.</p>
       </div>
 
       <div class="caio-role">
-        <span class="caio-role-icon"><div class="icon-3d"><div class="icon-rocket"><div class="icon-rocket-fin"></div><div class="icon-rocket-fin"></div><div class="icon-rocket-body"><div class="icon-rocket-window"></div></div><div class="icon-rocket-flame"></div></div></div></span>
+        <span class="caio-role-icon"></span>
         <h4>Growth Scaling & New Capabilities</h4>
         <p>When you're ready to scale — new markets, new services, new channels — your CAIO activates the next layer of your AI infrastructure. The army grows with you, up to 50 agents and beyond.</p>
       </div>
@@ -3267,7 +3273,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <p>Let's talk about what Fractional CAIO services look like for your specific business — the strategy, the cadence, the deliverables, and what your AI-powered business looks like 12 months from now.</p>
       </div>
       <div style="flex-shrink:0;">
-        <a href="https://raravismarketing.com/book" class="btn-gold" target="_blank">Book a CAIO Strategy Call →</a>
+        <a href="#" onclick="openBooking();return false;" class="btn-gold">Book a CAIO Strategy Call →</a>
       </div>
     </div>
 
@@ -3281,7 +3287,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <div class="cta-eyebrow reveal"><span class="live-pip"></span>Ready to Deploy</div>
     <h2 class="cta-headline reveal">BUILD YOUR<br><span class="gtext">ARMY.</span></h2>
     <p class="cta-body reveal">Book a free 20-minute strategy call. We'll map exactly what your AI Army looks like, what it handles on day one, and what your business looks like six months from now.</p>
-    <div class="reveal"><a href="https://raravismarketing.com/book" class="btn-gold" target="_blank">Book Your Free Strategy Call</a></div>
+    <div class="reveal"><a href="#" onclick="openBooking();return false;" class="btn-gold">Book Your Free Strategy Call</a></div>
     <p class="cta-note reveal">No pitch. No pressure. Just clarity on what's possible.</p>
     <div class="reveal"><a href="ai-army-terms.html" class="tos-link">Terms of Service & Legal Policies →</a></div>
   </div>
@@ -3293,6 +3299,9 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <li><a href="#services">Capabilities</a></li><li><a href="#compare">Compare</a></li><li><a href="#calculator">ROI Calc</a></li>
     <li><a href="#caio">Fractional CAIO</a></li><li><a href="#promise">Promise</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul>
   <div class="footer-copy">© 2025 Rara Avis Marketing LLC. All rights reserved.</div>
+  <div style="width:100%;text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border-dim);">
+    <a href="upload.html" style="font-size:11px;color:var(--faint);letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--g3)'" onmouseout="this.style.color='var(--faint)'">Upload Portal</a>
+  </div>
 </footer>
 
 <script>
@@ -3311,8 +3320,15 @@ document.getElementById('popup-close').onclick=()=>document.getElementById('popu
 document.getElementById('popup').addEventListener('click',e=>{if(e.target===document.getElementById('popup'))document.getElementById('popup').classList.remove('active');});
 function submitPopup(){
   const fname=document.getElementById('pop-fname').value.trim();
+  const lname=document.getElementById('pop-lname').value.trim();
   const email=document.getElementById('pop-email').value.trim();
+  const phone=document.getElementById('pop-phone').value.trim();
+  const biz=document.getElementById('pop-biz').value.trim();
   if(!fname||!email){alert('Please fill in at least your name and email.');return;}
+  const payload={name:fname+' '+lname,email:email,phone:phone,business:biz,source:'ai-army-popup',type:'blueprint_request',timestamp:new Date().toISOString()};
+  console.log('Popup submission:',payload);
+  if(window.GHL_BOOKING_WEBHOOK){fetch(window.GHL_BOOKING_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});}
+  if(window.FORM_ENDPOINT){fetch(window.FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});}
   document.getElementById('popup-form-wrap').style.display='none';
   document.getElementById('popup-success').classList.add('show');
   setTimeout(()=>document.getElementById('popup').classList.remove('active'),3500);
@@ -3421,6 +3437,14 @@ function calcUpdate(){
 }
 calcUpdate();
 
+/* ─── COMPARISON CHART TOGGLE ─── */
+function toggleCompare(){
+  const wrap=document.getElementById('compare-table-wrap');
+  const btn=document.querySelector('.compare-toggle');
+  wrap.classList.toggle('collapsed');
+  btn.textContent=wrap.classList.contains('collapsed')?'Expand Full Chart':'Collapse Chart';
+}
+
 /* ─── INDUSTRY TABS ─── */
 function setIndustry(el,industry){
   document.querySelectorAll('.industry-tab').forEach(t=>t.classList.remove('active'));
@@ -3430,7 +3454,8 @@ function setIndustry(el,industry){
   if(panel)panel.classList.add('active');
 }
 
-/* ─── PAIN SCROLL ANIMATION ─── */
+/* ─── PAIN SCROLL ANIMATION (inside frame) ─── */
+const painContainer=document.querySelector('.pain-scroll-container');
 const painScrollObserver=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
@@ -3438,7 +3463,7 @@ const painScrollObserver=new IntersectionObserver(entries=>{
       painScrollObserver.unobserve(e.target);
     }
   });
-},{threshold:0.3,rootMargin:'0px'});
+},{threshold:0.3,rootMargin:'0px',root:painContainer});
 document.querySelectorAll('[data-scroll-trigger]').forEach(el=>painScrollObserver.observe(el));
 
 /* ─── SCROLL REVEAL ─── */
@@ -3484,6 +3509,133 @@ setInterval(()=>{
   if(unlit.length&&Math.random()>0.4){unlit[Math.floor(Math.random()*unlit.length)].classList.add('lit');}
   if(lit.length>9&&Math.random()>0.4){lit[Math.floor(Math.random()*lit.length)].classList.remove('lit');}
 },900);
+
+/* ─── BOOKING MODAL ─── */
+let bookingDate=null,bookingTime=null,calMonth=new Date().getMonth(),calYear=new Date().getFullYear();
+function openBooking(){document.getElementById('booking-overlay').classList.add('active');renderCalendar();}
+function closeBooking(){document.getElementById('booking-overlay').classList.remove('active');}
+document.getElementById('booking-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('booking-overlay'))closeBooking();});
+
+function renderCalendar(){
+  const cal=document.getElementById('booking-calendar');
+  const headers=Array.from(cal.querySelectorAll('.booking-cal-header'));
+  cal.innerHTML='';
+  headers.forEach(h=>cal.appendChild(h));
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('cal-month-label').textContent=months[calMonth]+' '+calYear;
+  const firstDay=new Date(calYear,calMonth,1).getDay();
+  const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  const today=new Date();today.setHours(0,0,0,0);
+  for(let i=0;i<firstDay;i++){const empty=document.createElement('div');empty.className='booking-cal-day empty';cal.appendChild(empty);}
+  for(let d=1;d<=daysInMonth;d++){
+    const el=document.createElement('div');
+    el.className='booking-cal-day';
+    el.textContent=d;
+    const thisDate=new Date(calYear,calMonth,d);
+    if(thisDate<today||thisDate.getDay()===0){el.classList.add('disabled');}
+    else{el.onclick=function(){selectDate(this,calYear,calMonth,d);};}
+    if(bookingDate&&bookingDate.getTime()===thisDate.getTime())el.classList.add('selected');
+    cal.appendChild(el);
+  }
+}
+function calNav(dir){
+  calMonth+=dir;
+  if(calMonth>11){calMonth=0;calYear++;}
+  if(calMonth<0){calMonth=11;calYear--;}
+  renderCalendar();
+}
+function selectDate(el,y,m,d){
+  document.querySelectorAll('.booking-cal-day').forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+  bookingDate=new Date(y,m,d);
+}
+function selectTime(el){
+  document.querySelectorAll('.booking-time-slot').forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+  bookingTime=el.textContent;
+}
+function submitBooking(){
+  const fname=document.getElementById('book-fname').value.trim();
+  const lname=document.getElementById('book-lname').value.trim();
+  const email=document.getElementById('book-email').value.trim();
+  const phone=document.getElementById('book-phone').value.trim();
+  if(!fname||!email||!phone){alert('Please fill in your name, email, and phone number.');return;}
+  if(!bookingDate){alert('Please select a date.');return;}
+  if(!bookingTime){alert('Please select a preferred time.');return;}
+  const dateStr=bookingDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  /* Send to webhook / GHL integration point */
+  const payload={name:fname+' '+lname,email:email,phone:phone,date:dateStr,time:bookingTime,source:'ai-army-website',type:'strategy_call'};
+  console.log('Booking submission:',payload);
+  /* GHL Integration: POST to your GHL webhook URL */
+  if(window.GHL_BOOKING_WEBHOOK){
+    fetch(window.GHL_BOOKING_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
+  }
+  /* Email notification via Formspree or similar - replace with your endpoint */
+  if(window.FORM_ENDPOINT){
+    fetch(window.FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
+  }
+  document.getElementById('booking-form-wrap').style.display='none';
+  document.getElementById('booking-success').classList.add('show');
+  document.getElementById('booking-summary').textContent=dateStr+' at '+bookingTime;
+}
+
+/* ─── SURVEY NOTIFICATION / PRINTOUT ─── */
+const origShowResult=showSurveyResult;
+showSurveyResult=function(){
+  origShowResult();
+  /* Build survey printout data */
+  const score=document.getElementById('result-score').textContent;
+  const label=document.getElementById('result-label').textContent;
+  const surveyPayload={
+    type:'readiness_survey',
+    score:score,
+    label:label,
+    data:JSON.parse(JSON.stringify(surveyData)),
+    timestamp:new Date().toISOString(),
+    source:'ai-army-website'
+  };
+  console.log('Survey Result (printout):',JSON.stringify(surveyPayload,null,2));
+  /* GHL Integration: POST to your GHL webhook URL */
+  if(window.GHL_SURVEY_WEBHOOK){
+    fetch(window.GHL_SURVEY_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(surveyPayload)}).catch(()=>{});
+  }
+  /* Notification endpoint */
+  if(window.FORM_ENDPOINT){
+    fetch(window.FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(surveyPayload)}).catch(()=>{});
+  }
+};
+/* Survey result submission with name/email */
+const resEmailEl=document.getElementById('res-email');
+const resNameEl=document.getElementById('res-name');
+if(resEmailEl){
+  resEmailEl.addEventListener('change',function(){
+    const email=this.value.trim();
+    const name=resNameEl?resNameEl.value.trim():'';
+    if(!email)return;
+    const reportPayload={
+      type:'survey_report_request',
+      name:name,
+      email:email,
+      score:document.getElementById('result-score').textContent,
+      label:document.getElementById('result-label').textContent,
+      data:surveyData,
+      timestamp:new Date().toISOString()
+    };
+    console.log('Survey report request:',JSON.stringify(reportPayload,null,2));
+    if(window.GHL_SURVEY_WEBHOOK){
+      fetch(window.GHL_SURVEY_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(reportPayload)}).catch(()=>{});
+    }
+    if(window.FORM_ENDPOINT){
+      fetch(window.FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(reportPayload)}).catch(()=>{});
+    }
+  });
+}
+
+/* ─── GHL / WEBHOOK CONFIGURATION ─── */
+/* Set these variables to enable Go High Level integration: */
+/* window.GHL_BOOKING_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID'; */
+/* window.GHL_SURVEY_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID'; */
+/* window.FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; */
 </script>
 </body>
 </html>
