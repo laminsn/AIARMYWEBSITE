@@ -363,6 +363,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .s-body{font-size:17px;color:var(--muted);line-height:1.8;max-width:540px;}
 
 
+/* ═══ PAIN POINTS SECTION - SCROLLING ═══ */
+.pain-scroll-section{background:var(--void);position:relative;padding:0;}
+.pain-scroll-container{position:relative;}
+.pain-scroll-item{min-height:100vh;display:flex;align-items:center;padding:80px 52px;position:relative;opacity:0;transform:translateY(60px);transition:opacity 1s ease,transform 1s ease;}
+.pain-scroll-item.visible{opacity:1;transform:translateY(0);}
+.pain-scroll-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.pain-scroll-item:nth-child(even) .pain-scroll-inner{direction:rtl;}
+.pain-scroll-item:nth-child(even) .pain-scroll-content{direction:ltr;}
+.pain-scroll-content{max-width:580px;}
+.pain-scroll-visual{position:relative;height:500px;display:flex;align-items:center;justify-content:center;}
+.pain-stat-hero{font-family:'Syne',sans-serif;font-weight:800;font-size:120px;line-height:1;background:linear-gradient(135deg,#C0392B,#E74C3C);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-align:center;position:relative;}
+.pain-stat-label{font-size:14px;color:#C0392B;text-transform:uppercase;letter-spacing:2px;margin-top:16px;text-align:center;font-weight:600;}
+.pain-visual-chart{width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-around;gap:24px;}
+.pain-chart-bar{display:flex;align-items:center;gap:16px;}
+.pain-chart-label{font-size:13px;color:var(--muted);min-width:180px;text-align:right;letter-spacing:1px;}
+.pain-chart-track{flex:1;height:32px;background:rgba(201,149,42,0.08);border:1px solid var(--border-dim);position:relative;overflow:hidden;}
+.pain-chart-fill{height:100%;background:linear-gradient(90deg,#C0392B,#E74C3C);transition:width 1.5s ease;width:0;}
+.pain-chart-value{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:13px;font-weight:700;color:var(--soft);}
+.pain-scroll-item.visible .pain-chart-fill{width:var(--fill-width);}
+.pain-eyebrow{font-size:10px;color:#C0392B;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;font-weight:700;}
+.pain-scroll-title{font-family:'Syne',sans-serif;font-weight:800;font-size:48px;line-height:1.2;margin-bottom:24px;color:var(--soft);}
+.pain-scroll-title .highlight{background:linear-gradient(110deg,#C0392B,#E74C3C);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.pain-scroll-body{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px;}
+.pain-scroll-body strong{color:var(--soft);font-weight:600;}
+.pain-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:32px;}
+.pain-stat-item{padding:24px;background:rgba(192,57,43,0.06);border:1px solid rgba(192,57,43,0.2);text-align:center;}
+.pain-stat-num{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#E74C3C;margin-bottom:8px;}
+.pain-stat-text{font-size:12px;color:var(--muted);line-height:1.6;}
+.pain-timeline{display:flex;flex-direction:column;gap:16px;}
+.pain-timeline-item{padding:20px 24px;background:rgba(201,149,42,0.04);border-left:3px solid #C0392B;transition:all 0.3s;}
+.pain-timeline-time{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#C0392B;margin-bottom:8px;letter-spacing:1px;}
+.pain-timeline-text{font-size:14px;color:var(--muted);line-height:1.7;}
+.pain-visual-icon{font-size:180px;opacity:0.15;position:absolute;z-index:0;}
+.pain-visual-content{position:relative;z-index:1;}
+
 /* ═══ PAIN POINTS SECTION ═══ */
 .pain-s{background:var(--void);position:relative;overflow:hidden;}
 
@@ -1265,6 +1300,17 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
   .industry-panel h3{font-size:24px;}
   .industry-panel-grid{grid-template-columns:1fr;gap:16px;}
   .industry-use-cases ul{grid-template-columns:1fr;}
+  .pain-scroll-item{padding:60px 24px;min-height:auto;}
+  .pain-scroll-inner{grid-template-columns:1fr;gap:40px;}
+  .pain-scroll-item:nth-child(even) .pain-scroll-inner{direction:ltr;}
+  .pain-scroll-visual{height:auto;min-height:300px;}
+  .pain-stat-hero{font-size:80px;}
+  .pain-scroll-title{font-size:32px;}
+  .pain-stat-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .pain-chart-label{min-width:120px;font-size:11px;}
+  .pain-chart-track{height:24px;}
+  .pain-chart-value{font-size:11px;}
+  .pain-visual-icon{font-size:120px;}
   .popup-inner{padding:32px 24px;}
   .popup-row{grid-template-columns:1fr;}
   .survey-body{padding:28px 24px 60px;}
@@ -1951,8 +1997,199 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
 </div>
 
 
-<!-- ═══ PAIN POINTS SECTION ═══ -->
-<section class="pain-s s" id="pain">
+<!-- ═══ PAIN POINTS SECTION - NEW SCROLLING ═══ -->
+<section class="pain-scroll-section" id="pain">
+  <div class="pain-scroll-container">
+
+    <!-- INTRO PANEL -->
+    <div class="pain-scroll-item" data-scroll-trigger>
+      <div class="pain-scroll-inner">
+        <div class="pain-scroll-content">
+          <div class="pain-eyebrow">The Real Problem</div>
+          <h2 class="pain-scroll-title">
+            Most Businesses<br>Are <span class="highlight">Built to Fail</span>
+          </h2>
+          <p class="pain-scroll-body">
+            Not because the owner isn't capable. Not because the idea isn't good. <strong>Because the systems, the staffing, and the intelligence to scale simply aren't there</strong> — and by the time owners realize it, they're already buried.
+          </p>
+          <div class="pain-stat-grid">
+            <div class="pain-stat-item">
+              <div class="pain-stat-num">20%</div>
+              <div class="pain-stat-text">Fail in Year One</div>
+            </div>
+            <div class="pain-stat-item">
+              <div class="pain-stat-num">50%</div>
+              <div class="pain-stat-text">Gone by Year Five</div>
+            </div>
+            <div class="pain-stat-item">
+              <div class="pain-stat-num">65%</div>
+              <div class="pain-stat-text">Don't Survive 10 Years</div>
+            </div>
+            <div class="pain-stat-item">
+              <div class="pain-stat-num">82%</div>
+              <div class="pain-stat-text">Fail Due to Cash Flow</div>
+            </div>
+          </div>
+        </div>
+        <div class="pain-scroll-visual">
+          <div class="pain-visual-icon">📉</div>
+          <div class="pain-visual-content">
+            <div class="pain-stat-hero">82%</div>
+            <div class="pain-stat-label">of small businesses fail<br>due to cash flow & operations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTLENECK PANEL -->
+    <div class="pain-scroll-item" data-scroll-trigger>
+      <div class="pain-scroll-inner">
+        <div class="pain-scroll-content">
+          <div class="pain-eyebrow">The Root Cause</div>
+          <h2 class="pain-scroll-title">
+            The Owner Is<br>The <span class="highlight">Bottleneck</span>
+          </h2>
+          <p class="pain-scroll-body">
+            You're the CEO, the sales team, the customer service rep, the social media manager, the bookkeeper, and the janitor. <strong>There is no delegation. There is no system. There is only you — and you are finite.</strong>
+          </p>
+          <p class="pain-scroll-body">
+            You're not failing because you're not working hard enough. You're failing because <strong>no human can scale a business alone</strong> — and hiring is expensive, unreliable, and slow.
+          </p>
+          <p class="pain-scroll-body">
+            The businesses that survive aren't the ones with the best ideas. They're the ones with the <strong>best operating systems.</strong>
+          </p>
+        </div>
+        <div class="pain-scroll-visual">
+          <div class="pain-visual-icon">⚙️</div>
+          <div class="pain-visual-content">
+            <div class="pain-stat-hero">68%</div>
+            <div class="pain-stat-label">of business owners work<br>50+ hours per week</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEADS FALLING THROUGH PANEL -->
+    <div class="pain-scroll-item" data-scroll-trigger>
+      <div class="pain-scroll-inner">
+        <div class="pain-scroll-content">
+          <div class="pain-eyebrow">The Silent Killer</div>
+          <h2 class="pain-scroll-title">
+            Leads Fall Through<br><span class="highlight">Every Single Day</span>
+          </h2>
+          <p class="pain-scroll-body">
+            <strong>79% of leads are lost because no one followed up fast enough.</strong> A lead contacted within 5 minutes is 9× more likely to convert than one called an hour later.
+          </p>
+          <p class="pain-scroll-body">
+            But you're busy. Your team is busy. That lead texts once, gets no reply, and books your competitor. <strong>This is happening right now, today, in your business.</strong>
+          </p>
+          <div class="pain-stat-grid" style="grid-template-columns:1fr;">
+            <div class="pain-stat-item">
+              <div class="pain-stat-num">5 Minutes</div>
+              <div class="pain-stat-text">The window to capture a lead before they move on</div>
+            </div>
+          </div>
+        </div>
+        <div class="pain-scroll-visual">
+          <div class="pain-visual-icon">🕳️</div>
+          <div class="pain-visual-content">
+            <div class="pain-stat-hero">79%</div>
+            <div class="pain-stat-label">of leads lost due to<br>slow follow-up</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLYING BLIND PANEL -->
+    <div class="pain-scroll-item" data-scroll-trigger>
+      <div class="pain-scroll-inner">
+        <div class="pain-scroll-content">
+          <div class="pain-eyebrow">The Data Gap</div>
+          <h2 class="pain-scroll-title">
+            You Can't Scale<br>What You <span class="highlight">Can't See</span>
+          </h2>
+          <p class="pain-scroll-body">
+            If you asked your team right now: <strong>"What is our customer acquisition cost? What is our lead-to-close rate? What percentage of customers refer others?"</strong> — could anyone answer?
+          </p>
+          <p class="pain-scroll-body">
+            Most business owners are flying blind. You want to grow, but you don't know where the ceiling is, where the leaks are, or which activities actually move the needle. <strong>You can't fix what you can't measure.</strong>
+          </p>
+        </div>
+        <div class="pain-scroll-visual">
+          <div class="pain-visual-chart">
+            <div class="pain-chart-bar">
+              <div class="pain-chart-label">Know Their Actual KPIs</div>
+              <div class="pain-chart-track">
+                <div class="pain-chart-fill" style="--fill-width:12%"></div>
+                <div class="pain-chart-value">12%</div>
+              </div>
+            </div>
+            <div class="pain-chart-bar">
+              <div class="pain-chart-label">Consistent Lead Follow-Up</div>
+              <div class="pain-chart-track">
+                <div class="pain-chart-fill" style="--fill-width:21%"></div>
+                <div class="pain-chart-value">21%</div>
+              </div>
+            </div>
+            <div class="pain-chart-bar">
+              <div class="pain-chart-label">Documented SOPs</div>
+              <div class="pain-chart-track">
+                <div class="pain-chart-fill" style="--fill-width:9%"></div>
+                <div class="pain-chart-value">9%</div>
+              </div>
+            </div>
+            <div class="pain-chart-bar">
+              <div class="pain-chart-label">Using a CRM</div>
+              <div class="pain-chart-track">
+                <div class="pain-chart-fill" style="--fill-width:34%"></div>
+                <div class="pain-chart-value">34%</div>
+              </div>
+            </div>
+            <div class="pain-chart-bar">
+              <div class="pain-chart-label">Any AI in Place</div>
+              <div class="pain-chart-track">
+                <div class="pain-chart-fill" style="--fill-width:17%"></div>
+                <div class="pain-chart-value">17%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI SPEED PANEL -->
+    <div class="pain-scroll-item" data-scroll-trigger>
+      <div class="pain-scroll-inner">
+        <div class="pain-scroll-content">
+          <div class="pain-eyebrow">The Competitive Reality</div>
+          <h2 class="pain-scroll-title">
+            AI Isn't Waiting<br>For You to <span class="highlight">Catch Up</span>
+          </h2>
+          <p class="pain-scroll-body">
+            GPT-4. GPT-4o. Voice AI. Agents. Autonomous systems. <strong>Every six months the landscape is unrecognizable</strong> — and every six months, your competitors who are keeping up pull further ahead.
+          </p>
+          <p class="pain-scroll-body">
+            The businesses adopting AI automation right now aren't doing it because they love technology. <strong>They're doing it because their competitor already has an AI answering the phone at midnight and following up 90 seconds after a lead comes in.</strong>
+          </p>
+          <p class="pain-scroll-body">
+            You don't have 200 hours to research and test every new tool. You have a business to run. The companies that win are the ones who hire someone who already knows what works — and just deploys it for them.
+          </p>
+        </div>
+        <div class="pain-scroll-visual">
+          <div class="pain-visual-icon">⚡</div>
+          <div class="pain-visual-content">
+            <div class="pain-stat-hero">6<span style="font-size:60px">mo</span></div>
+            <div class="pain-stat-label">AI evolves faster than<br>you can keep up</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ OLD PAIN POINTS SECTION (BACKUP) ═══ -->
+<section class="pain-s s" id="pain-old" style="display:none;">
   <div class="s-inner">
     <div class="s-label reveal" style="color:#C0392B;">
       <span style="background:linear-gradient(90deg,#C0392B,transparent);width:32px;height:1px;display:block;"></span>
@@ -2799,6 +3036,17 @@ function setIndustry(el,industry){
   const panel=document.querySelector(`.industry-panel[data-industry="${industry}"]`);
   if(panel)panel.classList.add('active');
 }
+
+/* ─── PAIN SCROLL ANIMATION ─── */
+const painScrollObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      painScrollObserver.unobserve(e.target);
+    }
+  });
+},{threshold:0.3,rootMargin:'0px'});
+document.querySelectorAll('[data-scroll-trigger]').forEach(el=>painScrollObserver.observe(el));
 
 /* ─── SCROLL REVEAL ─── */
 const io=new IntersectionObserver(entries=>{
