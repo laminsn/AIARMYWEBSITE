@@ -266,6 +266,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 
 /* ═══ HERO ═══ */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 60px;overflow:hidden;}
+.hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero-video-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(2,2,8,0.85) 0%,rgba(2,2,8,0.75) 50%,rgba(2,2,8,0.85) 100%);z-index:1;}
+.hero > *:not(.hero-video):not(.hero-video-overlay){position:relative;z-index:2;}
 .orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;opacity:0;}
 .orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(201,149,42,0.14) 0%,transparent 70%);top:-200px;left:-200px;animation:orbFade 2s 0.2s ease forwards,orbDrift1 18s 2s ease-in-out infinite;}
 .orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(232,190,69,0.10) 0%,transparent 70%);bottom:-100px;right:-100px;animation:orbFade 2s 0.5s ease forwards,orbDrift2 22s 2s ease-in-out infinite;}
@@ -1852,6 +1855,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="YOUR_VIDEO_URL.mp4" type="video/mp4">
+    <source src="YOUR_VIDEO_URL.webm" type="video/webm">
+  </video>
+  <div class="hero-video-overlay"></div>
   <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
   <div class="hero-grid"></div>
   <div class="hero-eyebrow"><span class="live-pip"></span>Rara Avis Marketing LLC &nbsp;·&nbsp; AI Automation Division</div>
