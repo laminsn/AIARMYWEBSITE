@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Upload | AI Army</title>
+  <meta name="description" content="Upload and manage your video content">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Video Manager</h1>
+      <p class="subtitle">Upload and manage your video content</p>
+    </header>
+
+    <div class="upload-section">
+      <div id="dropzone">
+        <span class="upload-icon">☁️</span>
+        <p>Click to select or drag and drop your video here</p>
+        <p class="file-types">Supported formats: MP4, WebM, OGG, MOV, AVI</p>
+      </div>
+      <input type="file" id="fileInput" accept="video/*">
+
+      <div class="upload-controls">
+        <button id="uploadBtn">Upload Video</button>
+      </div>
+
+      <div id="progressContainer">
+        <div id="statusText">Uploading...</div>
+        <div class="progress-bar-bg">
+          <div id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-section">
+      <h2>Your Videos</h2>
+      <div id="gallery">
+        <div class="loading">Loading videos...</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
