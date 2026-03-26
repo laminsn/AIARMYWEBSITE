@@ -1580,143 +1580,6 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
   .survey-body{padding:28px 24px 60px;}
   .survey-trigger{right:16px;bottom:16px;font-size:10px;padding:11px 18px;}
 }
-
-/* Gold Frame and Enhanced Styles */
-.gold-frame-container {
-  border: 3px solid var(--g3) !important;
-  padding: 40px !important;
-  margin: 40px 0 !important;
-  position: relative;
-  max-height: 600px;
-  overflow-y: auto;
-  background: rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 0 20px rgba(201, 149, 42, 0.2);
-}
-
-.gold-frame-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.gold-frame-container::-webkit-scrollbar-thumb {
-  background: var(--grad-gold);
-  border-radius: 4px;
-}
-
-.pain-card-num {
-  transition: all 0.4s ease;
-}
-
-.cta-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  padding: 20px;
-}
-
-.cta-modal-content {
-  background: var(--bg1);
-  border: 1px solid var(--border-g);
-  padding: 40px;
-  max-width: 800px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-}
-
-.cta-modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: 1px solid var(--border-dim);
-  color: var(--muted);
-  width: 36px;
-  height: 36px;
-  font-size: 24px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.cta-modal-close:hover {
-  border-color: var(--g3);
-  color: var(--g3);
-}
-
-.cta-modal h2 {
-  font-family: 'Syne', sans-serif;
-  font-size: 28px;
-  margin-bottom: 24px;
-  color: var(--g3);
-}
-
-.cta-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 32px;
-}
-
-.cta-form input,
-.cta-form select {
-  background: var(--bg2);
-  border: 1px solid var(--border-dim);
-  color: var(--white);
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  padding: 14px 16px;
-  width: 100%;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.cta-form input:focus,
-.cta-form select:focus {
-  border-color: var(--g2);
-}
-
-.cta-form input::placeholder {
-  color: var(--faint);
-}
-
-.cta-form button {
-  margin-top: 8px;
-}
-
-.cta-calendar-section {
-  border-top: 1px solid var(--border-dim);
-  padding-top: 24px;
-}
-
-.cta-calendar-section p {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.comparison-toggle-btn {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 24px;
-  background: var(--grad-gold);
-  color: var(--void);
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 12px;
-  transition: transform 0.2s;
-}
-
-.comparison-toggle-btn:hover {
-  transform: translateY(-2px);
-}
 </style>
 </head>
 <body>
@@ -1730,7 +1593,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
   <div class="popup-box">
     <button class="popup-close" id="popup-close">✕</button>
     <div class="popup-inner" id="popup-form-wrap">
-      <div class="popup-eyebrow"><div class="icon-gift-bow"></div></div></div> Free Strategy Resource</div>
+      <div class="popup-eyebrow"><div class="icon-3d"><div class="icon-gift"><div class="icon-gift-box"></div><div class="icon-gift-bow"></div></div></div> Free Strategy Resource</div>
       <h2 class="popup-title">Get Your Free<br><span class="gtext">AI Army Blueprint</span></h2>
       <p class="popup-sub">Enter your info and we'll send you the exact <strong>5-step AI deployment checklist</strong> we use for every client — plus a free 20-min strategy call invite.</p>
       <div class="popup-form">
@@ -1746,7 +1609,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
     </div>
     <div class="popup-success" id="popup-success">
-      <div class="popup-success-icon"><div class="icon-sword"></div></div></div></div>
+      <div class="popup-success-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></div>
       <h3>Your Army Awaits.</h3>
       <p style="color:var(--muted);font-size:15px;line-height:1.7;">Check your email for your AI Army Blueprint. We'll be in touch to schedule your free strategy call.</p>
     </div>
@@ -1869,11 +1732,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <div class="survey-q">How comfortable are you with using AI and automation in your business?</div>
         <div class="survey-hint">There's no wrong answer — this helps us calibrate the right deployment level for you.</div>
         <div class="survey-options">
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Beginner')"><div class="icon-plant-stem"></div><div class="icon-plant-leaf"></div><div class="icon-plant-leaf"></div></div></div> <strong>Beginner</strong> — I've heard of ChatGPT but haven't really used AI in my business</div>
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Curious')"><div class="icon-search-handle"></div></div></div> <strong>Curious</strong> — I've played around with a few AI tools but nothing systematic</div>
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Intermediate')"><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-circle"></div></div></div> <strong>Intermediate</strong> — I use some AI tools regularly but want to go deeper</div>
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Advanced')"><div class="icon-rocket-fin"></div><div class="icon-rocket-body"><div class="icon-rocket-window"></div></div><div class="icon-rocket-flame"></div></div></div> <strong>Advanced</strong> — I have automations running but need a complete, integrated system</div>
-          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Skeptical')"><div class="icon-think-eye"></div><div class="icon-think-mouth"></div></div><div class="icon-think-hand"></div></div></div> <strong>Skeptical</strong> — I'm not fully convinced yet, but open to seeing the ROI</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Beginner')"><div class="icon-3d"><div class="icon-plant"><div class="icon-plant-pot"></div><div class="icon-plant-stem"></div><div class="icon-plant-leaf"></div><div class="icon-plant-leaf"></div></div></div> <strong>Beginner</strong> — I've heard of ChatGPT but haven't really used AI in my business</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Curious')"><div class="icon-3d"><div class="icon-search"><div class="icon-search-lens"></div><div class="icon-search-handle"></div></div></div> <strong>Curious</strong> — I've played around with a few AI tools but nothing systematic</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Intermediate')"><div class="icon-3d"><div class="icon-gear"><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-circle"></div></div></div> <strong>Intermediate</strong> — I use some AI tools regularly but want to go deeper</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Advanced')"><div class="icon-3d"><div class="icon-rocket"><div class="icon-rocket-fin"></div><div class="icon-rocket-fin"></div><div class="icon-rocket-body"><div class="icon-rocket-window"></div></div><div class="icon-rocket-flame"></div></div></div> <strong>Advanced</strong> — I have automations running but need a complete, integrated system</div>
+          <div class="survey-opt" onclick="selectOpt(this,'ai_comfort','Skeptical')"><div class="icon-3d"><div class="icon-think"><div class="icon-think-face"><div class="icon-think-eye"></div><div class="icon-think-eye"></div><div class="icon-think-mouth"></div></div><div class="icon-think-hand"></div></div></div> <strong>Skeptical</strong> — I'm not fully convinced yet, but open to seeing the ROI</div>
         </div>
         <div class="survey-nav">
           <button class="survey-btn-back" onclick="nextStep(5)">← Back</button>
@@ -1887,11 +1750,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         <div class="survey-q">How urgently do you want to get your AI system deployed?</div>
         <div class="survey-hint">This helps us prioritize your strategy call booking.</div>
         <div class="survey-options">
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','ASAP')"><div class="icon-fire-inner"></div></div></div> <strong>ASAP</strong> — I needed this yesterday, ready to move immediately</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','ASAP')"><div class="icon-3d"><div class="icon-fire"><div class="icon-fire-flame"></div><div class="icon-fire-inner"></div></div></div> <strong>ASAP</strong> — I needed this yesterday, ready to move immediately</div>
           <div class="survey-opt" onclick="selectOpt(this,'timeline','Within 30 Days')">📅 <strong>Within 30 Days</strong> — Making a decision this month</div>
           <div class="survey-opt" onclick="selectOpt(this,'timeline','1–3 Months')">⏳ <strong>1–3 Months</strong> — Still researching and planning</div>
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','3–6 Months')"><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div></div></div></div> <strong>3–6 Months</strong> — Building toward it, no rush</div>
-          <div class="survey-opt" onclick="selectOpt(this,'timeline','Just Curious')"></div><div class="icon-bulb-base"><div class="icon-bulb-threads"></div></div></div></div> <strong>Just Exploring</strong> — Not ready yet but want to understand</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','3–6 Months')"><div class="icon-3d"><div class="icon-dashboard"><div class="icon-dash-row"><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div></div></div></div> <strong>3–6 Months</strong> — Building toward it, no rush</div>
+          <div class="survey-opt" onclick="selectOpt(this,'timeline','Just Curious')"><div class="icon-3d"><div class="icon-bulb"><div class="icon-bulb-glass"><div class="icon-bulb-filament"></div></div><div class="icon-bulb-base"><div class="icon-bulb-threads"></div></div></div></div> <strong>Just Exploring</strong> — Not ready yet but want to understand</div>
         </div>
         <div class="survey-nav">
           <button class="survey-btn-back" onclick="nextStep(6)">← Back</button>
@@ -2043,13 +1906,13 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <div class="industry-tabs-label">Built for your industry →</div>
     <div class="industry-tabs">
       <button class="industry-tab active" onclick="setIndustry(this,'all')">All Industries</button>
-      <button class="industry-tab" onclick="setIndustry(this,'healthcare')"></div></div> Healthcare</button>
-      <button class="industry-tab" onclick="setIndustry(this,'realestate')"><div class="icon-house-body"></div><div class="icon-house-door"></div></div></div> Real Estate</button>
-      <button class="industry-tab" onclick="setIndustry(this,'security')"></div></div></div> Security</button>
-      <button class="industry-tab" onclick="setIndustry(this,'restaurant')"><div class="icon-knife"></div></div></div> Restaurant</button>
-      <button class="industry-tab" onclick="setIndustry(this,'trades')"><div class="icon-wrench-head"></div></div></div> Trades</button>
-      <button class="industry-tab" onclick="setIndustry(this,'legal')"><div class="icon-scales-pole"></div><div class="icon-scales-beam"></div><div class="icon-scales-pan"></div><div class="icon-scales-pan"></div></div></div> Professional Svcs</button>
-      <button class="industry-tab" onclick="setIndustry(this,'ecommerce')"><div class="icon-cart-handle"></div><div class="icon-cart-wheel"></div><div class="icon-cart-wheel"></div></div></div> E-Commerce</button>
+      <button class="industry-tab" onclick="setIndustry(this,'healthcare')"><div class="icon-3d"><div class="icon-hospital"><div class="icon-hospital-cross"></div></div></div> Healthcare</button>
+      <button class="industry-tab" onclick="setIndustry(this,'realestate')"><div class="icon-3d"><div class="icon-house"><div class="icon-house-roof"></div><div class="icon-house-body"></div><div class="icon-house-door"></div></div></div> Real Estate</button>
+      <button class="industry-tab" onclick="setIndustry(this,'security')"><div class="icon-3d"><div class="icon-shield"><div class="icon-shield-body"><div class="icon-shield-emblem"></div></div></div></div> Security</button>
+      <button class="industry-tab" onclick="setIndustry(this,'restaurant')"><div class="icon-3d"><div class="icon-utensils"><div class="icon-fork"></div><div class="icon-knife"></div></div></div> Restaurant</button>
+      <button class="industry-tab" onclick="setIndustry(this,'trades')"><div class="icon-3d"><div class="icon-wrench"><div class="icon-wrench-handle"></div><div class="icon-wrench-head"></div></div></div> Trades</button>
+      <button class="industry-tab" onclick="setIndustry(this,'legal')"><div class="icon-3d"><div class="icon-scales"><div class="icon-scales-base"></div><div class="icon-scales-pole"></div><div class="icon-scales-beam"></div><div class="icon-scales-pan"></div><div class="icon-scales-pan"></div></div></div> Professional Svcs</button>
+      <button class="industry-tab" onclick="setIndustry(this,'ecommerce')"><div class="icon-3d"><div class="icon-cart"><div class="icon-cart-body"></div><div class="icon-cart-handle"></div><div class="icon-cart-wheel"></div><div class="icon-cart-wheel"></div></div></div> E-Commerce</button>
     </div>
   </div>
 </div>
@@ -2439,7 +2302,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         </div>
         <div class="pain-scroll-visual">
           <div class="pain-visual-icon">
-            <div class="icon-chart-bar"></div>
+            <div class="icon-3d">
+              <div class="icon-chart">
+                <div class="icon-chart-bar"></div>
+                <div class="icon-chart-bar"></div>
                 <div class="icon-chart-bar"></div>
                 <div class="icon-chart-bar"></div>
               </div>
@@ -2473,7 +2339,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         </div>
         <div class="pain-scroll-visual">
           <div class="pain-visual-icon">
-            <div class="icon-gear-tooth"></div>
+            <div class="icon-3d">
+              <div class="icon-gear">
+                <div class="icon-gear-tooth"></div>
+                <div class="icon-gear-tooth"></div>
                 <div class="icon-gear-tooth"></div>
                 <div class="icon-gear-tooth"></div>
                 <div class="icon-gear-circle"></div>
@@ -2511,7 +2380,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         </div>
         <div class="pain-scroll-visual">
           <div class="pain-visual-icon">
-            <div class="icon-void-middle"></div>
+            <div class="icon-3d">
+              <div class="icon-void">
+                <div class="icon-void-outer">
+                  <div class="icon-void-inner"></div>
+                  <div class="icon-void-middle"></div>
                 </div>
               </div>
             </div>
@@ -2601,7 +2474,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
         </div>
         <div class="pain-scroll-visual">
           <div class="pain-visual-icon">
-            </div>
+            <div class="icon-3d">
+              <div class="icon-lightning">
+                <div class="icon-lightning-bolt"></div>
+              </div>
             </div>
           </div>
           <div class="pain-visual-content">
@@ -2651,6 +2527,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <div class="pain-grid">
 
       <div class="pain-card reveal">
+        <span class="pain-card-icon">😤</span>
         <div class="pain-card-num">68%</div>
         <div class="pain-card-stat-label">of owners work 50+ hours per week</div>
         <h3>The Overworked Owner & Stretched C-Suite</h3>
@@ -2658,6 +2535,16 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
+        <span class="pain-card-icon">
+          <div class="icon-3d">
+            <div class="icon-void">
+              <div class="icon-void-outer">
+                <div class="icon-void-inner"></div>
+                <div class="icon-void-middle"></div>
+              </div>
+            </div>
+          </div>
+        </span>
         <div class="pain-card-num">79%</div>
         <div class="pain-card-stat-label">of leads are lost due to slow follow-up</div>
         <h3>Leads Fall Through Every Day</h3>
@@ -2665,6 +2552,16 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
+        <span class="pain-card-icon">
+          <div class="icon-3d">
+            <div class="icon-chart">
+              <div class="icon-chart-bar"></div>
+              <div class="icon-chart-bar"></div>
+              <div class="icon-chart-bar"></div>
+              <div class="icon-chart-bar"></div>
+            </div>
+          </div>
+        </span>
         <div class="pain-card-num">91%</div>
         <div class="pain-card-stat-label">of SMBs have no documented KPIs</div>
         <h3>You Can't Scale What You Can't See</h3>
@@ -2672,6 +2569,18 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
+        <span class="pain-card-icon">
+          <div class="icon-3d">
+            <div class="icon-brain">
+              <div class="icon-brain-main">
+                <div class="icon-brain-fold"></div>
+                <div class="icon-brain-fold"></div>
+                <div class="icon-brain-fold"></div>
+                <div class="icon-brain-fold"></div>
+              </div>
+            </div>
+          </div>
+        </span>
         <div class="pain-card-num">73%</div>
         <div class="pain-card-stat-label">of SMB owners say staffing is their #1 challenge</div>
         <h3>Understaffed, Undertrained, Overwhelmed</h3>
@@ -2679,6 +2588,13 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
+        <span class="pain-card-icon">
+          <div class="icon-3d">
+            <div class="icon-lightning">
+              <div class="icon-lightning-bolt"></div>
+            </div>
+          </div>
+        </span>
         <div class="pain-card-num">5× </div>
         <div class="pain-card-stat-label">faster — AI evolves every 6 months</div>
         <h3>AI Is Moving Faster Than You Can Keep Up</h3>
@@ -2686,6 +2602,16 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="pain-card reveal">
+        <span class="pain-card-icon">
+          <div class="icon-3d">
+            <div class="icon-barrier">
+              <div class="icon-barrier-main">
+                <div class="icon-barrier-stripe"></div>
+                <div class="icon-barrier-stripe"></div>
+              </div>
+            </div>
+          </div>
+        </span>
         <div class="pain-card-num">62%</div>
         <div class="pain-card-stat-label">of business owners identify as non-technical</div>
         <h3>Technology Is a Wall, Not a Door</h3>
@@ -2886,13 +2812,13 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <p class="s-body reveal">Six core pillars, built to interlock. Each one engineered specifically around your industry, your workflow, and your business model — not a template, not a demo.</p>
     <div class="services-layout reveal">
       <div class="svc"><div class="svc-count">01 / 06</div><div class="svc-icon-wrap">📋</div><h3>SOP Setup</h3><p>Your entire business systematized and documented — so nothing lives inside your head and every process runs without you. Onboarding, fulfillment, customer flows, team handoffs. All of it, organized and searchable.</p><div class="svc-pills"><span class="pill">Process Docs</span><span class="pill">Playbooks</span><span class="pill">Workflows</span><span class="pill">Templates</span></div></div>
-      <div class="svc"><div class="svc-count">02 / 06</div><div class="svc-icon-wrap"><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-circle"></div></div></div></div><h3>CRM Configuration</h3><p>A fully configured CRM tailored to your sales cycle, lead volume, and customer journey — with pipelines, automated follow-ups, and booking flows built from day one so zero leads fall through the cracks.</p><div class="svc-pills"><span class="pill">Sales Pipelines</span><span class="pill">Lead Capture</span><span class="pill">Auto Follow-Up</span><span class="pill">Funnels</span></div></div>
-      <div class="svc"><div class="svc-count">03 / 06</div><div class="svc-icon-wrap"><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div></div></div></div></div><h3>Spreadsheet Systems</h3><p>Custom-built data infrastructure that tracks what matters — revenue, leads, KPIs, operations. Built to feed decision-making with clean data and automated reporting, not manual entry.</p><div class="svc-pills"><span class="pill">KPI Dashboards</span><span class="pill">Revenue Tracking</span><span class="pill">Pipeline Data</span><span class="pill">Auto Reports</span></div></div>
+      <div class="svc"><div class="svc-count">02 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-gear"><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-tooth"></div><div class="icon-gear-circle"></div></div></div></div><h3>CRM Configuration</h3><p>A fully configured CRM tailored to your sales cycle, lead volume, and customer journey — with pipelines, automated follow-ups, and booking flows built from day one so zero leads fall through the cracks.</p><div class="svc-pills"><span class="pill">Sales Pipelines</span><span class="pill">Lead Capture</span><span class="pill">Auto Follow-Up</span><span class="pill">Funnels</span></div></div>
+      <div class="svc"><div class="svc-count">03 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-dashboard"><div class="icon-dash-row"><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div><div class="icon-dash-bar"></div></div></div></div></div><h3>Spreadsheet Systems</h3><p>Custom-built data infrastructure that tracks what matters — revenue, leads, KPIs, operations. Built to feed decision-making with clean data and automated reporting, not manual entry.</p><div class="svc-pills"><span class="pill">KPI Dashboards</span><span class="pill">Revenue Tracking</span><span class="pill">Pipeline Data</span><span class="pill">Auto Reports</span></div></div>
       <div class="svc"><div class="svc-count">04 / 06</div><div class="svc-icon-wrap">🤖</div><h3>Industry-Trained AI Agents</h3><p>AI agents that know your business, your customers, and your industry — calibrated to your brand voice, your niche, and your specific products or services. Not generic. Not borrowed. Yours. Scalable up to 50 agents.</p><div class="svc-pills"><span class="pill">Custom Training</span><span class="pill">Brand Voice</span><span class="pill">Niche Knowledge</span><span class="pill">Up to 50 Agents</span></div></div>
-      <div class="svc wide"><div class="svc-count">05 / 06</div><div class="svc-icon-wrap"><div class="icon-refresh-arrow"></div><div class="icon-refresh-arrow"></div></div></div></div><h3>Full Business Automation</h3><p>Hands-off operations end to end. AI answers your phones, replies to texts, manages your calendar, requests Google Reviews, handles reschedules, manages customer support, and posts on every social platform — all without you touching it. Your AI Army posts from your recorded content, manages inboxes across email, social, and phone, and grows your brand on autopilot.</p><div class="svc-pills"><span class="pill">AI Phone Answering</span><span class="pill">SMS Automation</span><span class="pill">Google Reviews</span><span class="pill">Calendar & Bookings</span><span class="pill">Customer Support</span><span class="pill">Social Posting</span><span class="pill">Inbox Management</span><span class="pill">Email Automation</span></div></div>
+      <div class="svc wide"><div class="svc-count">05 / 06</div><div class="svc-icon-wrap"><div class="icon-3d"><div class="icon-refresh"><div class="icon-refresh-arc"></div><div class="icon-refresh-arrow"></div><div class="icon-refresh-arrow"></div></div></div></div><h3>Full Business Automation</h3><p>Hands-off operations end to end. AI answers your phones, replies to texts, manages your calendar, requests Google Reviews, handles reschedules, manages customer support, and posts on every social platform — all without you touching it. Your AI Army posts from your recorded content, manages inboxes across email, social, and phone, and grows your brand on autopilot.</p><div class="svc-pills"><span class="pill">AI Phone Answering</span><span class="pill">SMS Automation</span><span class="pill">Google Reviews</span><span class="pill">Calendar & Bookings</span><span class="pill">Customer Support</span><span class="pill">Social Posting</span><span class="pill">Inbox Management</span><span class="pill">Email Automation</span></div></div>
     </div>
     <div class="books-callout reveal" style="margin-top:2px;border-top:none;">
-      <div class="svc-icon-wrap" style="font-size:32px;margin:0;"><div class="icon-globe-line"></div><div class="icon-globe-line"></div></div></div></div></div>
+      <div class="svc-icon-wrap" style="font-size:32px;margin:0;"><div class="icon-3d"><div class="icon-globe"><div class="icon-globe-sphere"><div class="icon-globe-continent"></div><div class="icon-globe-line"></div><div class="icon-globe-line"></div></div></div></div></div>
       <div><p style="font-family:'Syne',sans-serif;font-weight:700;font-size:22px;margin-bottom:10px;"><span class="gtext">06 / 06 — Website + Social Presence</span></p><p style="font-size:15px;color:var(--muted);line-height:1.75;">A full AI-powered website built in a matter of days — designed to convert, built to rank. Add social media profile buildout and your AI Army handles content posting, inbox management, and brand growth across every platform automatically.</p></div>
     </div>
   </div>
@@ -3118,10 +3044,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <h2 class="s-title reveal">The <span class="gtext">Rara Avis Promise.</span></h2>
     <p class="s-body reveal">We don't just deliver and disappear. Every deployment comes backed by guarantees that actually mean something.</p>
     <div class="promise-grid reveal">
-      <div class="promise-card"><div class="promise-num">30</div><h3><span>30-Day "We Fix It"</span> Warranty</h3><p>If anything we built isn't performing as promised within 30 days of delivery, we fix it — no questions, no fees, no runaround. If it's broken, that's our problem to solve.</p><div class="promise-badge">Guaranteed Fix · 30 Days</div></div>
-      <div class="promise-card"><div class="promise-num">1Y</div><h3><span>Automatic Updates</span> Warranty</h3><p>AI moves fast. Your system won't fall behind. 6-month or 1-year automatic updates keep your agents, automations, and integrations current — without you touching anything.</p><div class="promise-badge">6-Month or 1-Year Coverage</div></div>
-      <div class="promise-card"><div class="promise-num">WK</div><h3>Weekly & Monthly <span>Insider Newsletters</span></h3><p>Exclusive Rara Avis newsletters — weekly tactical updates and monthly deep-dives on AI trends, growth strategies, and automation wins. Content you won't find anywhere else.</p><div class="promise-badge">Weekly + Monthly Drops</div></div>
-      <div class="promise-card"><div class="promise-num">DC</div><h3>Private <span>Owner's Discord</span></h3><p>An exclusive Discord with other AI Army owners — share wins, swap strategies, access insider tutorial videos, and get early access to new capabilities before anyone else.</p><div class="promise-badge">Exclusive Access · Owners Only</div></div>
+      <div class="promise-card"><div class="promise-num">30</div><span class="promise-icon"><div class="icon-3d"><div class="icon-shield"><div class="icon-shield-body"><div class="icon-shield-emblem"></div></div></div></div></span><h3><span>30-Day "We Fix It"</span> Warranty</h3><p>If anything we built isn't performing as promised within 30 days of delivery, we fix it — no questions, no fees, no runaround. If it's broken, that's our problem to solve.</p><div class="promise-badge">Guaranteed Fix · 30 Days</div></div>
+      <div class="promise-card"><div class="promise-num">1Y</div><span class="promise-icon"><div class="icon-3d"><div class="icon-refresh"><div class="icon-refresh-arc"></div><div class="icon-refresh-arrow"></div><div class="icon-refresh-arrow"></div></div></div></span><h3><span>Automatic Updates</span> Warranty</h3><p>AI moves fast. Your system won't fall behind. 6-month or 1-year automatic updates keep your agents, automations, and integrations current — without you touching anything.</p><div class="promise-badge">6-Month or 1-Year Coverage</div></div>
+      <div class="promise-card"><div class="promise-num">WK</div><span class="promise-icon"><div class="icon-3d"><div class="icon-mailbox"><div class="icon-mailbox-body"><div class="icon-mailbox-slot"></div></div><div class="icon-mailbox-flag"></div><div class="icon-mailbox-post"></div></div></div></span><h3>Weekly & Monthly <span>Insider Newsletters</span></h3><p>Exclusive Rara Avis newsletters — weekly tactical updates and monthly deep-dives on AI trends, growth strategies, and automation wins. Content you won't find anywhere else.</p><div class="promise-badge">Weekly + Monthly Drops</div></div>
+      <div class="promise-card"><div class="promise-num">DC</div><span class="promise-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></span><h3>Private <span>Owner's Discord</span></h3><p>An exclusive Discord with other AI Army owners — share wins, swap strategies, access insider tutorial videos, and get early access to new capabilities before anyone else.</p><div class="promise-badge">Exclusive Access · Owners Only</div></div>
     </div>
   </div>
 </section>
@@ -3133,7 +3059,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
     <h2 class="s-title reveal">You're Not Alone<br><span class="gtext">After Launch.</span></h2>
     <p class="s-body reveal">Every AI Army owner joins something bigger — a network of operators sharing real intelligence, strategy, and growth.</p>
     <div class="community-layout reveal">
-      <div class="comm-card discord-card"><span class="discord-icon"><div class="icon-sword"></div></div></div></span><h3>The <span>AI Army Owners</span> Discord</h3><p>A private, exclusive community for every business owner who deploys their AI Army. This is where the real conversations happen.</p><ul class="comm-perks"><li>Real-time tips and wins from other owners</li><li>Exclusive insider strategy drops from our team</li><li>Tutorial videos and training walkthroughs</li><li>Early access to new AI capabilities and updates</li><li>Direct line to the Rara Avis team for questions</li><li>Industry-specific channels by business type</li></ul></div>
+      <div class="comm-card discord-card"><span class="discord-icon"><div class="icon-3d"><div class="icon-swords"><div class="icon-sword"></div><div class="icon-sword"></div></div></div></span><h3>The <span>AI Army Owners</span> Discord</h3><p>A private, exclusive community for every business owner who deploys their AI Army. This is where the real conversations happen.</p><ul class="comm-perks"><li>Real-time tips and wins from other owners</li><li>Exclusive insider strategy drops from our team</li><li>Tutorial videos and training walkthroughs</li><li>Early access to new AI capabilities and updates</li><li>Direct line to the Rara Avis team for questions</li><li>Industry-specific channels by business type</li></ul></div>
       <div class="comm-card newsletter-card"><div class="nl-badge"><span class="live-pip"></span>Always On</div><h3><span>Insider Newsletters</span></h3><p>Two dedicated newsletters to keep your knowledge current and your edge sharp.</p><div class="nl-freq"><div class="nl-item"><div class="nl-dot"></div><div><div class="nl-item-text">Weekly AI Army Dispatch</div><div class="nl-item-label">Tactical · Automation wins · Rapid tips</div></div></div><div class="nl-item"><div class="nl-dot"></div><div><div class="nl-item-text">Monthly Growth Intelligence Report</div><div class="nl-item-label">Deep-dives · Market shifts · AI trends</div></div></div></div></div>
     </div>
   </div>
@@ -3215,7 +3141,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
 
       <div class="caio-role">
         <span class="caio-role-icon">
-          <div class="icon-compass-center"></div>
+          <div class="icon-3d">
+            <div class="icon-compass">
+              <div class="icon-compass-ring">
+                <div class="icon-compass-needle"></div>
+                <div class="icon-compass-center"></div>
               </div>
             </div>
           </div>
@@ -3226,7 +3156,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
 
       <div class="caio-role">
         <span class="caio-role-icon">
-          <div class="icon-lab-tube">
+          <div class="icon-3d">
+            <div class="icon-lab">
+              <div class="icon-lab-base"></div>
+              <div class="icon-lab-tube">
                 <div class="icon-lab-liquid"></div>
               </div>
             </div>
@@ -3238,7 +3171,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
 
       <div class="caio-role">
         <span class="caio-role-icon">
-          <div class="icon-gear-tooth"></div>
+          <div class="icon-3d">
+            <div class="icon-gear">
+              <div class="icon-gear-tooth"></div>
+              <div class="icon-gear-tooth"></div>
               <div class="icon-gear-tooth"></div>
               <div class="icon-gear-tooth"></div>
               <div class="icon-gear-circle"></div>
@@ -3251,7 +3187,11 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
 
       <div class="caio-role">
         <span class="caio-role-icon">
-          <div class="icon-dash-bar"></div>
+          <div class="icon-3d">
+            <div class="icon-dashboard">
+              <div class="icon-dash-row">
+                <div class="icon-dash-bar"></div>
+                <div class="icon-dash-bar"></div>
                 <div class="icon-dash-bar"></div>
               </div>
             </div>
@@ -3263,7 +3203,10 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
 
       <div class="caio-role">
         <span class="caio-role-icon">
-          <div class="icon-grad-cap"></div>
+          <div class="icon-3d">
+            <div class="icon-grad">
+              <div class="icon-grad-board"></div>
+              <div class="icon-grad-cap"></div>
               <div class="icon-grad-tassel"></div>
             </div>
           </div>
@@ -3273,7 +3216,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       </div>
 
       <div class="caio-role">
-        <span class="caio-role-icon"><div class="icon-rocket-fin"></div><div class="icon-rocket-body"><div class="icon-rocket-window"></div></div><div class="icon-rocket-flame"></div></div></div></span>
+        <span class="caio-role-icon"><div class="icon-3d"><div class="icon-rocket"><div class="icon-rocket-fin"></div><div class="icon-rocket-fin"></div><div class="icon-rocket-body"><div class="icon-rocket-window"></div></div><div class="icon-rocket-flame"></div></div></div></span>
         <h4>Growth Scaling & New Capabilities</h4>
         <p>When you're ready to scale — new markets, new services, new channels — your CAIO activates the next layer of your AI infrastructure. The army grows with you, up to 50 agents and beyond.</p>
       </div>
