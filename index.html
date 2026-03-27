@@ -391,6 +391,7 @@ nav.scrolled{background:rgba(13,13,13,0.92);backdrop-filter:blur(16px) saturate(
 .metric-l{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes spin{to{transform:rotate(360deg);}}
 
 /* TICKER */
 .ticker-wrap{border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);padding:14px 0;background:var(--bg1);overflow:hidden;white-space:nowrap;}
@@ -2011,16 +2012,22 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
       <div class="video-header">
         <div class="video-header-left">
           <div class="video-dots"><div class="video-dot vd1"></div><div class="video-dot vd2"></div><div class="video-dot vd3"></div></div>
-          <div class="video-label">Live Demo — AI Army in Action</div>
+          <div class="video-label">Live Demo — Talk to Avis</div>
         </div>
-        <div class="video-badge">Powered by Alex · Rara Avis AI</div>
+        <div class="video-badge">Powered by Avis · Rara Avis AI</div>
       </div>
-      <!-- REPLACE src WITH YOUR ACTUAL TAVUS/VIMEO/YOUTUBE EMBED URL -->
-      <!-- <iframe style="width:100%;aspect-ratio:16/9;border:none;" src="YOUR_VIDEO_EMBED_URL" allowfullscreen></iframe> -->
-      <div class="video-placeholder" onclick="openBooking()">
-        <div class="video-play-btn"><div class="video-play-icon"></div></div>
-        <div class="video-placeholder-text">Watch Alex — Our AI in Action</div>
-        <div class="video-placeholder-sub">Click to book a live demo call</div>
+      <!-- TAVUS AI CONVERSATION -->
+      <div id="tavus-container" style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0A0A1C,#0D0D26);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <div id="tavus-placeholder" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;cursor:pointer;z-index:1;" onclick="startTavusConversation()">
+          <div class="video-play-btn"><div class="video-play-icon"></div></div>
+          <div class="video-placeholder-text">Talk to Avis — Our AI Agent</div>
+          <div class="video-placeholder-sub">Click to start a live conversation</div>
+        </div>
+        <div id="tavus-loading" style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+          <div style="width:32px;height:32px;border:3px solid var(--border-dim);border-top-color:var(--g2);border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+          <div style="font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Connecting to Avis...</div>
+        </div>
+        <iframe id="tavus-iframe" style="width:100%;height:100%;border:none;display:none;" allow="camera;microphone;autoplay" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -3530,6 +3537,40 @@ setInterval(()=>{
 
 /* ─── BOOKING MODAL ─── */
 let bookingDate=null,bookingTime=null,calMonth=new Date().getMonth(),calYear=new Date().getFullYear();
+/* ─── TAVUS AI CONVERSATION ─── */
+let tavusStarted=false;
+async function startTavusConversation(){
+  if(tavusStarted)return;
+  tavusStarted=true;
+  const placeholder=document.getElementById('tavus-placeholder');
+  const loading=document.getElementById('tavus-loading');
+  const iframe=document.getElementById('tavus-iframe');
+  placeholder.style.display='none';
+  loading.style.display='flex';
+  try{
+    const res=await fetch('https://tavusapi.com/v2/conversations',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':'fa8436d1f2cd4b34b1bd63acd80553b7'},
+      body:JSON.stringify({
+        replica_id:'re3fd4adeafd',
+        persona_id:'pb409578276d',
+        properties:{participant_left_timeout:0,language:'english'}
+      })
+    });
+    const data=await res.json();
+    if(data.conversation_url){
+      iframe.src=data.conversation_url;
+      iframe.style.display='block';
+      loading.style.display='none';
+    }else{
+      throw new Error('No conversation URL returned');
+    }
+  }catch(err){
+    console.error('Tavus error:',err);
+    loading.innerHTML='<div style="color:var(--red-soft);font-size:13px;text-align:center;">Unable to connect right now.<br><a href="#" onclick="openBooking();return false;" style="color:var(--g2);text-decoration:underline;margin-top:8px;display:inline-block;">Book a call instead</a></div>';
+  }
+}
+
 function openBooking(){document.getElementById('booking-overlay').classList.add('active');renderCalendar();}
 function closeBooking(){document.getElementById('booking-overlay').classList.remove('active');}
 document.getElementById('booking-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('booking-overlay'))closeBooking();});
