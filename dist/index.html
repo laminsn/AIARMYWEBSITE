@@ -3548,14 +3548,10 @@ async function startTavusConversation(){
   placeholder.style.display='none';
   loading.style.display='flex';
   try{
-    const res=await fetch('https://tavusapi.com/v2/conversations',{
+    const EDGE_URL='https://YOUR_PROJECT.supabase.co/functions/v1/tavus-conversation';
+    const res=await fetch(EDGE_URL,{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':'fa8436d1f2cd4b34b1bd63acd80553b7'},
-      body:JSON.stringify({
-        replica_id:'re3fd4adeafd',
-        persona_id:'pb409578276d',
-        properties:{participant_left_timeout:0,language:'english'}
-      })
+      headers:{'Content-Type':'application/json'}
     });
     const data=await res.json();
     if(data.conversation_url){
