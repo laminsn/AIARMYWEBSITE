@@ -2027,7 +2027,7 @@ footer{border-top:1px solid var(--border-dim);background:var(--void);padding:40p
           <div style="width:32px;height:32px;border:3px solid var(--border-dim);border-top-color:var(--g2);border-radius:50%;animation:spin 0.8s linear infinite;"></div>
           <div style="font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Connecting to Avis...</div>
         </div>
-        <iframe id="tavus-iframe" style="width:100%;height:100%;border:none;display:none;" allow="camera;microphone;autoplay" allowfullscreen></iframe>
+        <iframe id="tavus-iframe" style="width:100%;height:100%;border:none;display:none;position:absolute;top:0;left:0;" allow="camera *;microphone *;autoplay;display-capture;fullscreen" allowfullscreen sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-popups-to-escape-sandbox"></iframe>
       </div>
     </div>
   </div>
@@ -3559,9 +3559,9 @@ async function startTavusConversation(){
     });
     const data=await res.json();
     if(data.conversation_url){
-      iframe.src=data.conversation_url;
-      iframe.style.display='block';
       loading.style.display='none';
+      iframe.style.display='block';
+      iframe.src=data.conversation_url;
     }else{
       throw new Error('No conversation URL returned');
     }
