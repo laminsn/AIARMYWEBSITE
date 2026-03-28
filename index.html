@@ -3548,10 +3548,14 @@ async function startTavusConversation(){
   placeholder.style.display='none';
   loading.style.display='flex';
   try{
-    const EDGE_URL='https://YOUR_PROJECT.supabase.co/functions/v1/tavus-conversation';
-    const res=await fetch(EDGE_URL,{
+    const res=await fetch('https://tavusapi.com/v2/conversations',{
       method:'POST',
-      headers:{'Content-Type':'application/json'}
+      headers:{'Content-Type':'application/json','x-api-key':'fa8436d1f2cd4b34b1bd63acd80553b7'},
+      body:JSON.stringify({
+        replica_id:'re3fd4adeafd',
+        persona_id:'pb409578276d',
+        properties:{participant_left_timeout:0,language:'english'}
+      })
     });
     const data=await res.json();
     if(data.conversation_url){
@@ -3563,7 +3567,10 @@ async function startTavusConversation(){
     }
   }catch(err){
     console.error('Tavus error:',err);
-    loading.innerHTML='<div style="color:var(--red-soft);font-size:13px;text-align:center;">Unable to connect right now.<br><a href="#" onclick="openBooking();return false;" style="color:var(--g2);text-decoration:underline;margin-top:8px;display:inline-block;">Book a call instead</a></div>';
+    tavusStarted=false;
+    loading.style.display='none';
+    placeholder.style.display='flex';
+    placeholder.innerHTML='<div style="color:var(--red-soft);font-size:13px;text-align:center;padding:20px;">Unable to connect right now. Click to retry.<br><a href="#" onclick="event.stopPropagation();openBooking();return false;" style="color:var(--g2);text-decoration:underline;margin-top:8px;display:inline-block;">Or book a call instead</a></div>';
   }
 }
 
