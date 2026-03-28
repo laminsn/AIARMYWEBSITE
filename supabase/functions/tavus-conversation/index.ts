@@ -28,7 +28,7 @@ serve(async (req) => {
         "x-api-key": TAVUS_API_KEY,
       },
       body: JSON.stringify({
-        replica_id: "re3fd4adeafd",
+        replica_id: "r5dc7c7d0bcb",
         persona_id: "pb409578276d",
         properties: {
           participant_left_timeout: 0,
