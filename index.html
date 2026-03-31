@@ -3616,7 +3616,7 @@ function selectTime(el){
   el.classList.add('selected');
   bookingTime=el.textContent;
 }
-function submitBooking(){
+async function submitBooking(){
   const fname=document.getElementById('book-fname').value.trim();
   const lname=document.getElementById('book-lname').value.trim();
   const email=document.getElementById('book-email').value.trim();
@@ -3625,20 +3625,32 @@ function submitBooking(){
   if(!bookingDate){alert('Please select a date.');return;}
   if(!bookingTime){alert('Please select a preferred time.');return;}
   const dateStr=bookingDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-  /* Send to webhook / GHL integration point */
-  const payload={name:fname+' '+lname,email:email,phone:phone,date:dateStr,time:bookingTime,source:'ai-army-website',type:'strategy_call'};
-  console.log('Booking submission:',payload);
-  /* GHL Integration: POST to your GHL webhook URL */
-  if(window.GHL_BOOKING_WEBHOOK){
-    fetch(window.GHL_BOOKING_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
+
+  const submitBtn=document.querySelector('.booking-submit');
+  const originalText=submitBtn.textContent;
+  submitBtn.textContent='Submitting...';
+  submitBtn.disabled=true;
+
+  try{
+    const {data,error}=await supabase.from('cta_submissions').insert([{
+      name:fname+' '+lname,
+      email:email,
+      phone:phone,
+      best_time:dateStr+' at '+bookingTime,
+      source:'strategy_call_booking'
+    }]);
+
+    if(error)throw error;
+
+    document.getElementById('booking-form-wrap').style.display='none';
+    document.getElementById('booking-success').classList.add('show');
+    document.getElementById('booking-summary').textContent=dateStr+' at '+bookingTime;
+  }catch(err){
+    console.error('Booking error:',err);
+    alert('There was an issue submitting your booking. Please try again or contact us directly.');
+    submitBtn.textContent=originalText;
+    submitBtn.disabled=false;
   }
-  /* Email notification via Formspree or similar - replace with your endpoint */
-  if(window.FORM_ENDPOINT){
-    fetch(window.FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
-  }
-  document.getElementById('booking-form-wrap').style.display='none';
-  document.getElementById('booking-success').classList.add('show');
-  document.getElementById('booking-summary').textContent=dateStr+' at '+bookingTime;
 }
 
 /* ─── SURVEY NOTIFICATION / PRINTOUT ─── */
@@ -3698,6 +3710,12 @@ if(resEmailEl){
 /* window.GHL_BOOKING_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID'; */
 /* window.GHL_SURVEY_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID'; */
 /* window.FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; */
+</script>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const supabaseUrl = 'https://cfhcxmsamftvrqssgsji.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmaGN4bXNhbWZ0dnJxc3Nnc2ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1NTY1MjgsImV4cCI6MjA5MDEzMjUyOH0.TMG6oggnxe5aioUQquSorliWfGu2KDYQyP6KFa-2lZg';
+window.supabase = createClient(supabaseUrl, supabaseAnonKey);
 </script>
 </body>
 </html>
